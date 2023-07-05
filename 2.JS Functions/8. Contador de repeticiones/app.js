@@ -13,6 +13,5 @@ const counterWords = [
   "upgrade",
   "code",
 ];
-function repeatCounter(param) {
-  // insert code
-}
+function repeatCounter(param) {}
+a;
