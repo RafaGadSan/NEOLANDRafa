@@ -17,16 +17,21 @@ const duplicates = [
 ];
 function removeDuplicates(param) {
   // Entiendo que tiene que devolver un array sin modificar el original
-  let newParam = param;
-  for (let i = 0; i < newParam.length; i++) {
-    const element = newParam[i];
-    for (let j = i + 1; j < newParam.length; j++) {
-      const segundoElement = newParam[j];
-      newParam[i] == newParam[j] && newParam.splice(j, 1);
+  let nuevoArray = [];
+  //primero clonamos el array para no sobreescribir el original.
+  for (h = 0; h < param.length; h++) {
+    nuevoArray[h] = param[h];
+  }
+  for (let i = 0; i < nuevoArray.length; i++) {
+    const element = nuevoArray[i];
+    for (let j = i + 1; j < nuevoArray.length; j++) {
+      const segundoElement = nuevoArray[j];
+      nuevoArray[i] === nuevoArray[j] && nuevoArray.splice(j, 1);
     }
   }
-  return newParam;
+  return nuevoArray;
 }
+
 console.log(
   `El array original es ${duplicates} y el array sin duplicados es ${removeDuplicates(
     duplicates
