@@ -16,5 +16,19 @@ const duplicates = [
   "soda",
 ];
 function removeDuplicates(param) {
-  // insert code
+  // Entiendo que tiene que devolver un array sin modificar el original
+  let newParam = param;
+  for (let i = 0; i < newParam.length; i++) {
+    const element = newParam[i];
+    for (let j = i + 1; j < newParam.length; j++) {
+      const segundoElement = newParam[j];
+      newParam[i] == newParam[j] && newParam.splice(j, 1);
+    }
+  }
+  return newParam;
 }
+console.log(
+  `El array original es ${duplicates} y el array sin duplicados es ${removeDuplicates(
+    duplicates
+  )}`
+);
