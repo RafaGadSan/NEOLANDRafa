@@ -14,5 +14,12 @@ const avengers = [
 function findLongestWord(param) {
   let posicion = 0;
   let longitud = 0;
-  for (let index = 0; index < param.length; index++) {}
+  for (let index = 0; index < param.length; index++) {
+    if (param[index].length > longitud) {
+      longitud = param[index].length;
+      posicion = index;
+    }
+  }
+  console.log(`La palabra más larga del array es ${param[posicion]}`);
 }
+findLongestWord(avengers);
