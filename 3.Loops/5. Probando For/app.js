@@ -11,6 +11,6 @@ const placesToTravel = [
   { id: 59, name: "Madagascar" },
 ];
 for (let i = 0; i < placesToTravel.length; i++) {
-  placesToTravel[i].id === 11 && placesToTravel.slice(i, 1);
+  placesToTravel[i].id == (11 || 40) && placesToTravel.splice(i, 1);
 }
 console.log(placesToTravel);
