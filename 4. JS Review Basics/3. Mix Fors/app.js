@@ -42,3 +42,17 @@ const users = [
     },
   },
 ];
+const comprobar = (array) => {
+  const sonidosCont = {};
+  for (let item of array) {
+    const { favoritesSounds } = item;
+    //console.log(favoritesSounds);
+    for (let sonido in favoritesSounds) {
+      sonidosCont.hasOwnProperty(sonido)
+        ? (sonidosCont[sonido] += 1)
+        : (sonidosCont[sonido] = 1);
+    }
+  }
+  return sonidosCont;
+};
+console.log(comprobar(users));
