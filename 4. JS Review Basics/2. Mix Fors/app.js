@@ -35,3 +35,28 @@ const users = [
     },
   },
 ];
+//!aquí haré el ejercicio para la media del volumen de cada usuario
+//recorremos los usuarios
+for (const usuario of users) {
+  let nombre = usuario.name;
+  let sumVol = 0;
+  let numCanciones = 0;
+  //dentro de cada usuario entramos en favoritesSounds
+  //recorremos los volumenes de cada cancion de cada usuario
+  for (let cancion in usuario.favoritesSounds) {
+    sumVol += usuario.favoritesSounds[cancion].volume;
+    numCanciones++;
+  }
+  console.log(`El volumen medio de ${nombre} es ${sumVol / numCanciones}`);
+}
+
+//!Aquí haré el ejercicio para los volúmenes en general
+let volumenes = 0;
+let numVolumenes = 0;
+for (let usuario of users) {
+  for (let cancion in usuario.favoritesSounds) {
+    volumenes += usuario.favoritesSounds[cancion].volume;
+    numVolumenes++;
+  }
+}
+console.log(`El volumen medio general es de ${volumenes / numVolumenes}`);
