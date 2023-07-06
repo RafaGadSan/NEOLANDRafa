@@ -18,7 +18,7 @@ const repeatCounter = (paramArray) => {
   const newArray = [];
   paramArray.forEach((element) => {
     let contador = 0;
-    paramArray.forEach((element2, indice) => {
+    paramArray.forEach((element2) => {
       element2 === element && contador++;
     });
     /*le pongo el -1 al contador porque te pide el número de veces que se repite,
