@@ -10,6 +10,7 @@ const users1 = [
 ];
 const nombres1 = users1.map((nombres1) => nombres1.name1);
 console.log(nombres1);
+
 //!------------------------------4.2---------------------------------
 console.log("----------------------------4.2-------------------------------");
 // 4.2 Dado el siguiente array, devuelve una lista que contenga los valores
@@ -21,7 +22,12 @@ const users2 = [
   { id2: 3, name2: "Pedro" },
   { id2: 4, name2: "Amanda" },
 ];
-
+const nombres2 = users2.map((nombres2) => nombres2.name2);
+nombres2.forEach((element, index) => {
+  element[0] == "A" && (nombres2[index] = "Anacleto");
+});
+console.log(nombres2);
+//users2[0].name2[0] == "A" ? console.log("si") : console.log("no");
 //!------------------------------4.3---------------------------------
 console.log("----------------------------4.3-------------------------------");
 // 4.3 Dado el siguiente array, devuelve una lista que contenga los valores
