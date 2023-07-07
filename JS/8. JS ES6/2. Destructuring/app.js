@@ -9,12 +9,14 @@ const game = {
 };
 const { title, gender, year } = game;
 console.log(`El juego ${title} en engloba en ${gender} y es del año ${year}`);
+
 /*2.2 En base al siguiente javascript, usa destructuring para crear 3 variables 
 llamadas fruit1, fruit2 y fruit3, con los valores del array. Posteriormente
 imprimelo por consola.*/
 
 const fruits = ["Banana", "Strawberry", "Orange"];
-
+const [fruit1, fruit2, fruit3] = fruits;
+console.log(`Las frutas son ${fruit1}, ${fruit2} y ${fruit3}`);
 /*2.3 En base al siguiente javascript, usa destructuring para crear 2 
 variables igualandolo a la función e imprimiendolo por consola.*/
 
