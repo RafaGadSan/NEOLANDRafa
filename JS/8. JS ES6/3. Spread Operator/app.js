@@ -11,17 +11,21 @@ console.log("----------------------------3.2---------------------------");
 const toy1 = { name: "Bus laiyiar", date: "20-30-1995", color: "multicolor" };
 const copiaToy1 = { ...toy1 };
 console.log(
-  `La copia de ${Object.entries(toy1)} \b \l es ${Object.entries(copiaToy1)}`
+  `La copia de ${Object.entries(toy1)} es ${Object.entries(copiaToy1)}`
 );
-//!----------------------------3.3---------------------------
 
+//!----------------------------3.3---------------------------
 console.log("----------------------------3.3---------------------------");
 /*3.3 Dado los siguientes arrays, crea un nuevo array juntandolos usando 
 spread operatos.*/
 const pointsList2 = [32, 54, 21, 64, 75, 43];
-const pointsLis3 = [54, 87, 99, 65, 32];
-//!----------------------------3.4---------------------------
+const pointsList3 = [54, 87, 99, 65, 32];
+const unionArrays = [...pointsList2, ...pointsList3];
+console.log(
+  `La unión de los arrays ${pointsList2} y ${pointsList3} \nan como resultado ${unionArrays} `
+);
 
+//!----------------------------3.4---------------------------
 console.log("----------------------------3.4---------------------------");
 /*3.4 Dado los siguientes objetos. Crea un nuevo objeto fusionando los dos 
 con spread operators.*/
@@ -30,8 +34,8 @@ const toy2Update = {
   lights: "rgb",
   power: ["Volar like a dragon", "MoonWalk"],
 };
-//!----------------------------3.5---------------------------
 
+//!----------------------------3.5---------------------------
 console.log("----------------------------3.5---------------------------");
 /*3.5 Dado el siguiente array. Crear una copia de él eliminando la posición 2 
 pero sin editar el array inicial. De nuevo, usando spread operatos.*/
