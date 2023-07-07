@@ -5,11 +5,10 @@ por consola la suma de los dos parametros.
 1.1 Ejecuta esta función sin pasar ningún parametro
 1.2 Ejecuta esta función pasando un solo parametro
 1.3 Ejecuta esta función pasando dos parametros */
-let num1 = 10;
-let num2 = 5;
-const funcion = (a, b) => {
+
+const funcion = (a = 10, b = 5) => {
   console.log(a + b);
 };
 funcion();
-funcion(num1);
-funcion(num1, num2);
+funcion(4);
+funcion(7, 1);
