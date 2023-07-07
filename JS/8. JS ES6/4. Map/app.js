@@ -45,3 +45,10 @@ const cities = [
   { isVisited: true, name3: "Amsterdam" },
   { isVisited: false, name3: "Seul" },
 ];
+
+const ciudades = cities.map((ciudades) =>
+  ciudades.isVisited == true
+    ? (ciudades.name3 = ciudades.name3 + "(Visitado)")
+    : (ciudades.name3 = ciudades.name3)
+);
+console.log(ciudades);
