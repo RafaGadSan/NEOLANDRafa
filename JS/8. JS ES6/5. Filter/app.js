@@ -1,22 +1,33 @@
 //!------------------------5.1------------------------
-console.log("------------------------5.1------------------------");
+console.log("\n------------------------5.1------------------------");
 // 5.1 Dado el siguiente array, utiliza .filter() para generar un nuevo array
 // con los valores que sean mayor que 18
-const ages = [22, 14, 24, 55, 65, 21, 12, 13, 90];
-const nuevoAges = ages.filter((edad) => edad >= 18);
-console.log(nuevoAges);
+const ages1 = [22, 14, 24, 55, 65, 21, 12, 13, 90];
+const nuevoAges1 = ages1.filter((edad) => edad >= 18);
+console.log(nuevoAges1);
+
+//!------------------------5.2------------------------
+console.log("\n------------------------5.2------------------------");
 // 5.2 Dado el siguiente array, utiliza .filter() para generar un nuevo array
 // con los valores que sean par.
-// const ages = [22, 14, 24, 55, 65, 21, 12, 13, 90];
+const ages2 = [22, 14, 24, 55, 65, 21, 12, 13, 90];
+const nuevoAges2 = ages2.filter((edad) => edad % 2 == 0);
+console.log(nuevoAges2);
 
+//!------------------------5.3------------------------
+console.log("\n------------------------5.3------------------------");
 // 5.3 Dado el siguiente array, utiliza .filter() para generar un nuevo array
 // con los streamers que tengan el gameMorePlayed = 'League of Legends'.
-// const streamers = [
-// 	{name: 'Rubius', age: 32, gameMorePlayed: 'Minecraft'},
-// 	{name: 'Ibai', age: 25, gameMorePlayed: 'League of Legends'},
-// 	{name: 'Reven', age: 43, gameMorePlayed: 'League of Legends'},
-// 	{name: 'AuronPlay', age: 33, gameMorePlayed: 'Among Us'}
-// ];
+const streamers1 = [
+  { name1: "Rubius", age1: 32, gameMorePlayed1: "Minecraft" },
+  { name1: "Ibai", age1: 25, gameMorePlayed1: "League of Legends" },
+  { name1: "Reven", age1: 43, gameMorePlayed1: "League of Legends" },
+  { name1: "AuronPlay", age1: 33, gameMorePlayed1: "Among Us" },
+];
+const nuevoStreamers1 = streamers1.filter(
+  (i) => i.gameMorePlayed1 == "League of Legends" && (i = i)
+);
+console.log(nuevoStreamers1);
 
 // 5.4 Dado el siguiente array, utiliza .filter() para generar un nuevo array
 // con los streamers que incluyan el caracter 'u' en su propiedad .name. Recomendamos
