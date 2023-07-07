@@ -34,7 +34,13 @@ const toy2Update = {
   lights: "rgb",
   power: ["Volar like a dragon", "MoonWalk"],
 };
-
+const toy2Completo = { ...toy2, ...toy2Update };
+console.log(
+  `la union de los objetos ${Object.entries(toy2)} y ${Object.entries(
+    toy2Update
+  )} es:`
+);
+console.log(toy2Completo);
 //!----------------------------3.5---------------------------
 console.log("----------------------------3.5---------------------------");
 /*3.5 Dado el siguiente array. Crear una copia de él eliminando la posición 2 
