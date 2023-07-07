@@ -7,9 +7,12 @@ console.log(`La copia del array ${pointsList1} es ${copiaPointList1}`);
 
 //!----------------------------3.2---------------------------
 /*3.2 Dado el siguiente objeto, crea una copia usando spread operators.*/
-
 console.log("----------------------------3.2---------------------------");
 const toy1 = { name: "Bus laiyiar", date: "20-30-1995", color: "multicolor" };
+const copiaToy1 = { ...toy1 };
+console.log(
+  `La copia de ${Object.entries(toy1)} \b \l es ${Object.entries(copiaToy1)}`
+);
 //!----------------------------3.3---------------------------
 
 console.log("----------------------------3.3---------------------------");
