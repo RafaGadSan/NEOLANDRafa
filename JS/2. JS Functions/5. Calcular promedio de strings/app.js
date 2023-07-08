@@ -4,13 +4,13 @@ y de lo contrario cuente la longitud del string y lo sume.
 const mixedElements = [6, 1, "Rayo", 1, "vallecano", "10", "upgrade", 8, "hub"];
 function averageWord(param) {
   let sum = 0;
-  mixedElements.forEach((element) => {
+  param.forEach((element) => {
     typeof element == "number" ? (sum += element) : (sum += element.length);
   });
   return sum;
 }
 console.log(
-  `La suma de los número y longitudes de strings es ${averageWord(
+  `La suma de los números y longitudes de strings es ${averageWord(
     mixedElements
   )}`
 );

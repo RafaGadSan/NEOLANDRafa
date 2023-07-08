@@ -29,8 +29,8 @@ const nuevoStreamers1 = streamers1.filter(
 );
 console.log(nuevoStreamers1);
 
-//!------------------------5.3------------------------
-console.log("\n------------------------5.3------------------------");
+//!------------------------5.4------------------------
+console.log("\n------------------------5.4------------------------");
 // 5.4 Dado el siguiente array, utiliza .filter() para generar un nuevo array
 // con los streamers que incluyan el caracter 'u' en su propiedad .name. Recomendamos
 // usar la funcion .includes() para la comprobación.
@@ -47,8 +47,8 @@ const filtroStreamers2 = streamers2.filter(
 );
 console.log(filtroStreamers2);
 
-//!------------------------5.3------------------------
-console.log("\n------------------------5.3------------------------");
+//!------------------------5.5------------------------
+console.log("\n------------------------5.5------------------------");
 // 5.5 utiliza .filter() para generar un nuevo array con los streamers que incluyan
 // el caracter 'Legends' en su propiedad .gameMorePlayed. Recomendamos usar la funcion
 // .includes() para la comprobación.
@@ -63,29 +63,19 @@ const filtro2Streamers2 = streamers2.filter(
 );
 
 console.log(filtro2Streamers2);
+
+//!------------------------5.6------------------------
+console.log("\n------------------------5.6------------------------");
 // 5.6 Dado el siguiente html y javascript, utiliza .filter() para mostrar por consola
 // los streamers que incluyan la palabra introducida en el input. De esta forma, si
 // introduzco 'Ru' me deberia de mostrar solo el streamer 'Rubius'. Si
 // introduzco 'i', me deberia de mostrar el streamer 'Rubius' e 'Ibai'.
-// const streamers = [
-// 	{name: 'Rubius', age: 32, gameMorePlayed: 'Minecraft'},
-// 	{name: 'Ibai', age: 25, gameMorePlayed: 'League of Legends'},
-// 	{name: 'Reven', age: 43, gameMorePlayed: 'League of Legends'},
-// 	{name: 'AuronPlay', age: 33, gameMorePlayed: 'Among Us'}
-// ];
-
-// <!doctype html>
-// <html lang="en">
-// <head>
-// <meta charset="UTF-8">
-//              <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-//              <meta http-equiv="X-UA-Compatible" content="ie=edge">
-//              <title>Document</title>
-// </head>
-// <body>
-//   <input type="text" data-function="toFilterStreamers"/>
-// </body>
-// </html>
+const streamers3 = [
+  { name3: "Rubius", age3: 32, gameMorePlayed3: "Minecraft" },
+  { name3: "Ibai", age3: 25, gameMorePlayed3: "League of Legends" },
+  { name3: "Reven", age3: 43, gameMorePlayed3: "League of Legends" },
+  { name3: "AuronPlay", age3: 33, gameMorePlayed3: "Among Us" },
+];
 
 // 5.7 Dado el siguiente html y javascript, utiliza .filter() para mostrar por consola
 // los streamers que incluyan la palabra introducida en el input. De esta forma, si
@@ -98,17 +88,3 @@ console.log(filtro2Streamers2);
 // 	{name: 'Reven', age: 43, gameMorePlayed: 'League of Legends'},
 // 	{name: 'AuronPlay', age: 33, gameMorePlayed: 'Among Us'}
 // ];
-
-// <!doctype html>
-// <html lang="en">
-// <head>
-// <meta charset="UTF-8">
-//              <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-//              <meta http-equiv="X-UA-Compatible" content="ie=edge">
-//              <title>Document</title>
-// </head>
-// <body>
-//   <input type="text" data-function="toFilterStreamers"/>
-//   <button data-function="toShowFilterStreamers">Filter</button>
-// </body>
-// </html>
