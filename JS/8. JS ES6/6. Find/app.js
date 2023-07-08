@@ -6,15 +6,18 @@ const numbers = [32, 21, 63, 95, 100, 67, 43];
 numbers.find((number) => number === 100)
   ? console.log(`El array tiene el número 100`)
   : console.log(`El array NO tiene el número 100`);
+
 //!------------------------6.2------------------------
 console.log("\n------------------------6.2------------------------");
 // 6.2 Dado el siguiente array, usa .find() para econtrar la pelicula del año 2010.
-// const movies = [
-// 	{title: 'Madagascar', stars: 4.5, date: 2015},
-// 	{title: 'Origen', stars: 5, date: 2010},
-// 	{title: 'Your Name', stars: 5, date: 2016}
-// ];
-
+const movies = [
+  { title: "Madagascar", stars: 4.5, date: 2015 },
+  { title: "Origen", stars: 5, date: 2010 },
+  { title: "Your Name", stars: 5, date: 2016 },
+];
+movies.find((peli) => peli.date === 2010)
+  ? console.log(`SÍ hay pelis del 2010`)
+  : console.log(`NO hay pelis del 2010`);
 //!------------------------6.3------------------------
 console.log("\n------------------------6.3------------------------");
 // 6.3 Dado el siguiente javascript, usa .find() para econtrar el alien de nombre
