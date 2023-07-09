@@ -33,7 +33,8 @@ const repeatCounter = (paramArray) => {
 
   newArray.forEach((element) => {
     //Aquí ya me hice una paja mental para que se mostrara bien XD
-    //Hago un ternario para comprobar si la palabra en cuestión no se repite, en caso contrario, hago otro ternario dentro
+    //Hago un ternario para comprobar si la palabra en cuestión no se repite,
+    // en caso contrario, hago otro ternario dentro
     //de éste, donde compruebo si se repite 1 o más veces.
     console.log(
       `La palabra ${element.name} ${
