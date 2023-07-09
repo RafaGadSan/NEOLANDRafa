@@ -76,15 +76,33 @@ const streamers3 = [
   { name3: "Reven", age3: 43, gameMorePlayed3: "League of Legends" },
   { name3: "AuronPlay", age3: 33, gameMorePlayed3: "Among Us" },
 ];
+//Con esta manera puedes acceder a cualquer coincidencia usando (# para el ID)
+//const input = document.querySelector("#inputIndex1");
+//Con la clase document, puedes acceder a elementos según sus métodos (id, element, etc...)
 
+//!------------------------5.7------------------------
+console.log("\n------------------------5.7------------------------");
+//Le puesto un botón porque no sé hacerlo con sólo el input.
+const input = document.getElementById("inputIndex1");
+const funcionClick = () => {
+  streamers3.filter(
+    (i) => i.name3.includes(input.value) && console.log(i.name3)
+  );
+};
 // 5.7 Dado el siguiente html y javascript, utiliza .filter() para mostrar por consola
 // los streamers que incluyan la palabra introducida en el input. De esta forma, si
 // introduzco 'Ru' me deberia de mostrar solo el streamer 'Rubius'. Si introduzco 'i',
 // me deberia de mostrar el streamer 'Rubius' e 'Ibai'.
 // En este caso, muestra solo los streamers filtrados cuando hagamos click en el button.
-// const streamers = [
-// 	{name: 'Rubius', age: 32, gameMorePlayed: 'Minecraft'},
-// 	{name: 'Ibai', age: 25, gameMorePlayed: 'League of Legends'},
-// 	{name: 'Reven', age: 43, gameMorePlayed: 'League of Legends'},
-// 	{name: 'AuronPlay', age: 33, gameMorePlayed: 'Among Us'}
-// ];
+const streamers = [
+  { name: "Rubius", age: 32, gameMorePlayed: "Minecraft" },
+  { name: "Ibai", age: 25, gameMorePlayed: "League of Legends" },
+  { name: "Reven", age: 43, gameMorePlayed: "League of Legends" },
+  { name: "AuronPlay", age: 33, gameMorePlayed: "Among Us" },
+];
+const input2 = document.getElementById("inputIndex1");
+const funcionClick2 = () => {
+  streamers3.filter(
+    (i) => i.name3.includes(input.value) && console.log(i.name3)
+  );
+};
