@@ -42,5 +42,13 @@ console.log(`La suma de las notas aprobadas es de ${sumaNotasAprobadas}`);
 
 //!------------------------7.3------------------------
 console.log("\n------------------------7.3------------------------");
-
 // 7.3 Dado el mismo array, haz la media de las notas de todos los examenes .reduce().
+
+let mediaNotas = exams.reduce(
+  (accumulator, user) =>
+    //Si abro llaves para meter varias líneas, tengo que poner return.
+    //Return solo se omite cuando es una arrow monolínea(sin llaves).
+    (accumulator += user.score),
+  0
+);
+console.log(`La media de las notas es de ${mediaNotas / exams.length}`);
