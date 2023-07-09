@@ -51,4 +51,3 @@ let mediaNotas = exams.reduce(
     (accumulator += user.score),
   0
 );
-console.log(`La media de las notas es de ${mediaNotas / exams.length}`);
