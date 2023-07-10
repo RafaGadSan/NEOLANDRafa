@@ -1,0 +1,15 @@
+body {
+  background-color: #1d2226;
+  font-family: Verdana, sans-serif;
+  font-size: 16px;
+  color: gray;
+}
+
+h1 {
+  font-family: Georgia, serif;
+  font-size: 60px;
+  color: white;
+}
+#fotoGladiator {
+  height: 200px;
+}
