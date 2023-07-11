@@ -3,6 +3,8 @@ body {
   font-family: Verdana, sans-serif;
   font-size: 16px;
   color: gray;
+  width: 100vw;
+  height: 100vh;
 }
 
 h1 {
@@ -12,4 +14,11 @@ h1 {
 }
 #fotoGladiator {
   height: 200px;
+}
+figure {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
