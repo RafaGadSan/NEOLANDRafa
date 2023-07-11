@@ -1,0 +1,13 @@
+body {
+  background-color: rgb(43, 43, 43);
+  color: whitesmoke;
+}
+
+h1 {
+  text-transform: uppercase;
+}
+
+li {
+  color: crimson;
+  font-style: italic;
+}
