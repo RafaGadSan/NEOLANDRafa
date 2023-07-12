@@ -1,0 +1,29 @@
+body {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.one {
+  background: pink;
+  border: 3px solid black;
+  /* CAMBIAR */
+  padding: 32px;
+  margin: 12px;
+}
+
+.two {
+  background: lightblue;
+  border: 3px solid black;
+  /* CAMBIAR */
+  margin-bottom: 48px;
+}
+
+.three {
+  background: peachpuff;
+  border: 3px solid black;
+  width: 200px;
+  /* CAMBIAR */
+  padding: 32px;
+  /*Le pongo 400 porque es 600 que es el ancho del body menos el tamaño del three*/
+  margin-left: 400px;
+}
