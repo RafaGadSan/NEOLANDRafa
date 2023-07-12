@@ -24,7 +24,7 @@ header h1 {
 }
 
 nav {
-  background-color: #333;
+  background-color: wheat;
 }
 
 nav ul {
@@ -72,7 +72,7 @@ section li {
 /* SUSITUIR EL PUNTO DE LA LISTA POR LA X */
 
 section a {
-  color: #333;
+  color: #bd1919;
   text-decoration: none;
   font-weight: bold;
   font-size: 1.2em;
