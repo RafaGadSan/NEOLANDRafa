@@ -1,0 +1,42 @@
+<!--
+    - Hay espacio entre todos los elementos y el borde del e
+    ncabezado (la cantidad específica de px no importa aquí).
+- El logotipo está centrado vertical y horizontalmente.
+- Los elementos de la lista son horizontales y están centrados
+ verticalmente dentro del encabezado.
+- Los enlaces a la izquierda y los enlaces a la derecha se 
+empujan completamente hacia la izquierda y hacia la derecha, y 
+permanecen en el borde del encabezado cuando se cambia el tamaño de la página.
+- La solución no utiliza floats, inline-blocks o positions absoluts.
+- Los elementos por defecto tienen margenes y padding, hay 
+que quitarlos mediante un reset
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flex Header</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="left-links">
+        <ul>
+          <li><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+        </ul>
+      </div>
+      <div class="logo">LOGO</div>
+      <div class="right-links">
+        <ul>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
+          <li><a href="#">6</a></li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
