@@ -1,0 +1,10 @@
+Replicar con HTML y CSS la web de la banda “Dayseeker” con la mayor exactitud posible.
+
+- Se deben utilizar correctamente las etiquetas HTML para que toda la aplicación sea semánticamente correcta.
+- Los colores se pueden capturar mediante una extensión ColorPicker.
+- Se puede utilizar tanto flexbox en el navegador, como grid para los productos.
+- La fuente utilizada en la web es “Helvetica”.
+- El videoclip de abajo puede ser una imagen estática, aunque se puede encontrar en YouTube y replicar la sección mediante un ****************iframe****************.
+- Todo el contenido debe de ser visual, no hay enlaces a otras páginas ni los botones son funcionales, aunque se pueden implementar animaciones similares a las de la web.
+- La imagen del album en la parte superior tiene una animación de inicio.
+- Todos los recursos se puede extraer inspeccionando la página web https://dayseeker.band/
