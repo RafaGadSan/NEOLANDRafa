@@ -1,0 +1,68 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+  height: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.container div {
+  padding: 15px;
+  font-size: 32px;
+  font-family: Helvetica;
+  font-weight: bold;
+  color: white;
+  border-radius: 15px;
+}
+
+.header {
+  background-color: #ffde22;
+  grid-area: myHeader;
+}
+
+.sidebar {
+  background-color: #ff7755;
+  grid-area: mySidebar;
+}
+
+.nav {
+  background-color: #00ddff;
+  grid-area: myNav;
+}
+
+.article {
+  background-color: #bccbde;
+  grid-area: myArticle;
+}
+
+.article p {
+  font-size: 18px;
+  font-family: sans-serif;
+  color: white;
+  text-align: left;
+}
+
+.footer {
+  grid-area: myFooter;
+  background-color: #393f4d;
+}
+.container {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: 300px 600px;
+  grid-template-rows:
+    150px
+    150px
+    600px
+    150px;
+  grid-template-areas:
+    "myHeader myHeader"
+    "mySidebar myNav"
+    "mySidebar myArticle"
+    "myFooter myFooter";
+}
