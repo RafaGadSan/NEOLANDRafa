@@ -1,0 +1,6 @@
+Este es un ejercicio sencillo de Grid, pero 
+es algo que tendrás que hacer varias veces.
+ por ello vamos a atacarlo cuanto antes.
+
+Todo lo que necesitas hacer es centrar el 
+div rojo dentro del contenedor padre azul.
