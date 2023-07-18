@@ -16,13 +16,11 @@ Please leave feedback for this kata. Cheers!
 function cookie(x) {
   switch (typeof x) {
     case "string":
-      console.log("Who ate the las cookie? It was Zach!");
-      break;
+      return console.log("Who ate the las cookie? It was Zach!");
     case "number":
-      console.log("Who ate the las cookie? It was Monica!");
-      break;
+      return console.log("Who ate the las cookie? It was Monica!");
     default:
-      console.log("Who ate the las cookie? It was the dog!");
+      return console.log("Who ate the las cookie? It was the dog!");
   }
 }
 cookie("Ryan");
