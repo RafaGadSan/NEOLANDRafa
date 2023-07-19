@@ -20,4 +20,4 @@ console.log(document.querySelectorAll("p"));
 
 // 1.6 Usa querySelector para mostrar por consola
 // el 3 personaje con el atributo
-// data-function="testMe".
+// data-function="testMe"
