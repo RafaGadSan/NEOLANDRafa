@@ -18,6 +18,7 @@ console.log(document.querySelectorAll(".pokemon"));
 //  todos los elementos con el atributo
 // data-function="testMe".
 console.log(document.querySelectorAll('span[data-function="testMe"]'));
+
 // 1.6 Usa querySelector para mostrar por consola
 // el 3 personaje con el atributo
 // data-function="testMe"
