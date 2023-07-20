@@ -1,0 +1,12 @@
+h1 {
+  width: 50vw;
+}
+
+.dark {
+  color: red;
+  background-color: black;
+}
+
+.dark h1 {
+  color: green;
+}

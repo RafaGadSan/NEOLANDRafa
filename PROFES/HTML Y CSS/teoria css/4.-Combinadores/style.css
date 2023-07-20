@@ -1,0 +1,30 @@
+/* COMBINADORES DE HERMANOS ADYACENTES*/
+
+.adyacente:nth-child(2) + .adyacente {
+  color: red;
+}
+
+.adyacente:first-of-type + .adyacente {
+  color: green;
+}
+
+/* COMBINADOR GENERAL DE HERMANOS ADYACENTES*/
+
+h4:first-of-type ~ h4 {
+  color: orange;
+}
+/* COMBINADORES DE HIJOS ----- tiene que seer hijo directo */
+.alumnos > li {
+  color: red;
+}
+
+/* esto es lo mismo que arriba
+.alumnos  li {
+  color: red;
+}*/
+
+/* COMBINADOR DE DESCENDIENTES ---- puede ser cualquier 
+hijo descendiente, nieto, etc, siempre que este por debajo en rango*/
+.book figcaption {
+  color: yellow;
+}

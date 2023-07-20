@@ -1,0 +1,80 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  & .box {
+    width: 150px;
+    height: 150px;
+    background-color: cadetblue;
+    animation: leftToRight 10s ease-in-out;
+  }
+
+  & img {
+    width: 70px;
+    height: 70px;
+    filter: invert(100%);
+    animation: rotate 3s infinite linear;
+  }
+
+  & ul {
+    animation: fadeIn 10s;
+  }
+
+  & h1 {
+    animation: fadeInAndOut 2s infinite;
+  }
+}
+
+@keyframes leftToRight {
+  0% {
+    transform: translateX(0);
+    background-color: red;
+  }
+
+  50% {
+    transform: translateX(400px);
+    background-color: rgb(120, 117, 243);
+  }
+
+  100% {
+    transform: translateX(800px);
+    background-color: green;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(10px);
+  }
+}
+
+@keyframes fadeInAndOut {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: antiquewhite;
+}
+/*TODO  justify-content -----> con el  ancho del  gridcontainer en fijo el justifyContent no funciona*/
+.gridContainer {
+  display: grid;
+  height: 80vh;
+  grid-template-columns: 300px 100px 100px;
+  grid-template-rows: auto 100px 150px;
+  justify-content: center;
+}
+
+div {
+  background-color: rgba(225, 255, 0, 0.468);
+  border: 1px solid black;
+}

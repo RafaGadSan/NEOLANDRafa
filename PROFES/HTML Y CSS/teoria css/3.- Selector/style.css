@@ -1,0 +1,21 @@
+p {
+  color: red;
+}
+
+.parrafo {
+  color: green;
+}
+
+#title {
+  color: blue;
+}
+
+a[href="www.google.com"] {
+  color: pink;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}

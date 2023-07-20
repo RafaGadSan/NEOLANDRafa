@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+@font-face {
+  font-family: "Formula";
+  font-weight: 300;
+  src: url(./assets/fonts/Formula1-Regular.otf);
+}
+@font-face {
+  font-family: "Formula";
+  font-family: 800;
+  src: url(./assets/fonts/Formula1-Bold.otf);
+}
+
+h1 {
+  font-family: "Formula";
+}
+
+p {
+  font-family: "Poppins", sans-serif;
+}
+
+p {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+p:hover {
+  font-family: "Poppins", sans-serif;
+}

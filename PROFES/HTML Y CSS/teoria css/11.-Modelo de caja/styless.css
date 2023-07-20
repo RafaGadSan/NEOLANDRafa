@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100vw;
+  padding: 4rem;
+}
+
+.embox {
+  margin: 2rem;
+  padding: 2rem;
+  height: 200px;
+  overflow-y: auto;
+  -webkit-box-shadow: 1px 0px 86px -18px rgba(201, 201, 201, 0.5);
+  -moz-box-shadow: 1px 0px 86px -18px rgba(201, 201, 201, 0.5);
+  box-shadow: 1px 0px 86px -18px rgba(201, 201, 201, 0.5);
+}
+
+/* min-height*/

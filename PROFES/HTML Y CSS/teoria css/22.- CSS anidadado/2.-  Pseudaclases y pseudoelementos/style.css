@@ -1,0 +1,11 @@
+/* en el caso de las pseuclases y los pseudoelementos si hace falta meter el elemento &*/
+
+p {
+  &:hover {
+    color: green;
+  }
+  &::after {
+    content: "💯";
+    width: 20px;
+  }
+}

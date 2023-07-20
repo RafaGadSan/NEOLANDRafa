@@ -1,0 +1,32 @@
+:root {
+    --fondo: #d7acac;
+    --color-primary: #4c1383ca;
+    --color-secondary:rgb(75, 81, 81);
+    --font-size-xl: 4rem;
+    --background-secondary: #c1c1c196;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--fondo);
+
+    & h1, h3, h4 {
+        color: var(--color-primary);
+        font-size: var(--font-size-xl);
+    }
+
+    & p {
+        color: var(--color-secondary);
+        background-color: var(--background-secondary);
+        margin: 2rem;
+        padding: 1.5rem;
+        border: 2px solid black;
+    }
+
+}
+

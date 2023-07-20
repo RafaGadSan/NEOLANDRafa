@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  height: 100vh;
+  padding: 20px;
+  float: inline-end;
+}
+
+h1 {
+  margin: 0;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+img {
+  z-index: 100;
+  position: relative;
+  bottom: 50px;
+}
+
+body {
+  height: 100vh;
+}

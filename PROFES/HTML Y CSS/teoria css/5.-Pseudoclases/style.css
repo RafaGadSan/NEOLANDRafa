@@ -1,0 +1,92 @@
+.btn:active {
+  background-color: blue;
+}
+
+/* twitter no se pone naranja porque no tiene un href*/
+a:any-link {
+  color: orange;
+}
+input:checked {
+  accent-color: green;
+}
+
+button:disabled {
+  background-color: RED;
+  color: white;
+}
+
+button:enabled {
+  background-color: green;
+  color: white;
+}
+
+.ranking > li:first-child {
+  color: blueviolet;
+}
+
+input:focus {
+  background-color: cadetblue;
+  outline: none;
+  border: 2px solid rgba(172, 255, 47, 0.305);
+  color: white;
+}
+
+a:hover {
+  background-color: red;
+}
+
+input:hover {
+  background-color: blue;
+}
+
+input:invalid {
+  outline: none;
+  border: 2px solid red;
+}
+
+.movies > li:last-child {
+  color: aquamarine;
+}
+
+li:nth-child(2) {
+  color: coral;
+}
+
+a:link {
+  color: blue;
+}
+
+.mix :not(p) {
+  color: darkorchid;
+}
+
+/* le pone el estilo uno no y otro si- salteado */
+.alumnos > li:nth-child(even) {
+  color: hotpink;
+}
+/* desde el final cuenta dos elementos y lo pinta */
+.alumnos > li:nth-last-child(2) {
+  color: deepskyblue;
+}
+
+/* pinta solo los hijos unicos de los elementos padres */
+ul li:only-child {
+  color: greenyellow;
+}
+
+input:read-only {
+  opacity: 0.5;
+}
+
+input:read-write {
+  background-color: green;
+}
+
+input:required {
+  background-color: blue;
+}
+
+:root {
+  font-family: "Times New Roman", Times, serif;
+  background-color: black;
+}

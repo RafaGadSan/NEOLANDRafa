@@ -1,0 +1,29 @@
+#box {
+  width: 100vw;
+  height: 20vh;
+  background-color: crimson;
+}
+
+/* Diferencias entre rgb y rgba es la transparencia
+
+Las trasparencias van de 0 a 1*/
+
+div {
+  background-color: rgb(0, 0, 255);
+}
+
+p {
+  color: rgba(0, 0, 255, 0.832);
+}
+
+/* codigo hexagonal */
+
+h3 {
+  color: #dc143c;
+}
+
+/* hsl ---> primero: los grados del color max 360,segundo saturacion del color, tercero luminosidad*/
+
+h3 {
+  color: hsla(120, 100%, 50%, 0.972);
+}

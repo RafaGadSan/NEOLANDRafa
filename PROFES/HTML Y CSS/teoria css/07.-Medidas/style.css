@@ -1,0 +1,25 @@
+body {
+  min-height: 100vh;
+}
+
+/* ----- rem y rem suelen ser 16 px */
+:root {
+  font-size: 2rem;
+}
+
+.embox > div {
+  background-color: red;
+  height: 50vh;
+  width: 100%;
+}
+
+.box {
+  width: 350px;
+  background: pink;
+  height: 150px;
+}
+
+p {
+  height: 50%;
+  margin: 0;
+}

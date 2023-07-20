@@ -1,0 +1,38 @@
+@layer base {
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  header {
+    height: 15vh;
+    background-color: antiquewhite;
+  }
+  main {
+    height: 70vh;
+  }
+
+  footer {
+    height: 15vh;
+    background-color: antiquewhite;
+  }
+}
+
+@layer default {
+  .btn {
+    background-color: azure;
+  }
+  .success-custom {
+    background-color: blue;
+  }
+}
+
+@layer actions {
+  .success-custom {
+    background-color: brown;
+  }
+
+  .success {
+    background-color: greenyellow;
+  }
+}

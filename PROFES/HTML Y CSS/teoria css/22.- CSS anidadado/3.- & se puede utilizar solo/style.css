@@ -1,0 +1,7 @@
+/* en este caso al ponerlo solo serian todos los descendientes de elemenmto padre*/
+
+.foo {
+  & {
+    color: green;
+  }
+}

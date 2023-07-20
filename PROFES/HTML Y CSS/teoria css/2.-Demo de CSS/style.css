@@ -1,0 +1,141 @@
+p {
+  color: red;
+}
+
+selector {
+  propiedad: valor;
+  propiedad: valor;
+}
+
+/*--------- especificidad ---------
+
+// ------Mayor a menor peso en la especifidad------------
+1)!important 
+2) estilos en linea
+3) id = #id
+4) clases, pseudoclases, pseudoelementos, atributos
+5) selector de etiqueta (div, p, a...)
+
+
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: black;
+  background-image: url("https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg");
+  background: black;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: white;
+  text-align: center;
+}
+
+header {
+  height: 10vh;
+  background-color: darkgray;
+}
+
+main {
+  min-height: 80vh;
+  padding: 8vw;
+  width: 100vw;
+}
+
+footer {
+  min-height: 10vh;
+  background-color: darkgray;
+}
+
+header > nav {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+}
+
+nav > ul {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  color: blue;
+}
+
+figure > img {
+  height: 400px;
+}
+
+#title {
+  color: black;
+}
+
+figure {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#gallery {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+figure > h4 {
+  height: 50px;
+}
+
+figure > p {
+  height: 250px;
+  text-align: center;
+}
+
+article > p {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/*  el max-width lo que indica es hasta el maximo de pixeles que cogeria el @media
+por lo tanto seria desde 0px a 560px
+*/
+@media (max-width: 560px) {
+  nav {
+    flex-direction: column;
+  }
+}
+
+/* ---------------ANTIGUA FORMA---------------------
+@media (min-width: 561px) and (max-width: 580px) {
+  #title {
+    color: green;
+  }
+}*/
+
+/* ------------- NUEVA FORMA ---------------- @MEDIA LEVEL 5 ----*/
+@media (561px <= width <= 580px) {
+  #title {
+    color: green;
+  }
+}

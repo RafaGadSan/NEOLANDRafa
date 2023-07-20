@@ -1,0 +1,30 @@
+table.colortable {
+  & .c {
+    background-color: red;
+    text-transform: capitalize;
+  }
+  & td {
+    &.c {
+      text-transform: uppercase;
+    }
+    text-align: center;
+    &:first-child,
+    &:first-child + td {
+      border: 1px solid black;
+    }
+  }
+
+  & th {
+    text-align: center;
+    background-color: black;
+    color: white;
+  }
+}
+
+/* en este caso el & no hace falta meterlo pero por buena practica lo metemos por la doc w3c*/
+.foo {
+  color: blue;
+  & > .bar {
+    color: red;
+  }
+}

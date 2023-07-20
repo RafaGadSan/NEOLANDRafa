@@ -1,0 +1,24 @@
+ul > li {
+  list-style: none;
+}
+
+ul > li::after {
+  content: "✅";
+  padding-left: 6px;
+}
+
+ul > li::before {
+  content: "📽";
+}
+
+h2::first-letter {
+  font-size: 200%;
+}
+
+p::first-line {
+  color: blueviolet;
+}
+
+input::placeholder {
+  color: blue;
+}

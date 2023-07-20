@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <details>
+      <summary>Más info</summary>
+      <h2>Nombre</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
+        voluptatem dolores, itaque illo veritatis perferendis animi ipsum totam
+        facere quae eos modi ex sed voluptas esse ad accusamus doloribus cum?
+      </p>
+    </details>
+    <dialog id="alert">
+      <h1>Holaaaaa</h1>
+      <button
+        id="close"
+        onclick="document.getElementById('alert').close(); alert('holaaaaa')"
+      >
+        ok!
+      </button>
+    </dialog>
+
+    <button onclick="document.getElementById('alert').show()">
+      ABRIR MODAL
+    </button>
+  </body>
+</html>

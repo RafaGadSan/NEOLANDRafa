@@ -1,0 +1,23 @@
+div {
+  display: inline;
+}
+img {
+  display: block;
+}
+
+.inline {
+  display: inline;
+}
+
+p {
+  display: none;
+}
+
+.profile {
+  display: none;
+}
+
+nav {
+  width: 100vw;
+  display: flex;
+}
