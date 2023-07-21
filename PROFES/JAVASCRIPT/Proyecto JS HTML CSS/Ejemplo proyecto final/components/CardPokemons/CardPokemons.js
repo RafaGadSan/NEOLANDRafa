@@ -1,6 +1,6 @@
 import "./CardPokemons.css";
 
-export const cardsPokemons = (data) => {
+export const CardsPokemons = (data) => {
   document.getElementById("galleryPokemon").innerHTML = "";
 
   data.map((pokemon) => {

@@ -17,5 +17,5 @@ const template = () => `
 </div>
 `;
 
-export const printTemplateSpinner = () =>
+export const PrintTemplateSpinner = () =>
   (document.getElementById("spinner").innerHTML = template());

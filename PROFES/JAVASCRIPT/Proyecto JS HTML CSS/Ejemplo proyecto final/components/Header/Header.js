@@ -62,7 +62,7 @@ const addListeners = () => {
 };
 
 //! ------------------------------ 3) La funcion que se exporta y que pinta
-export const printTemplateHeader = () => {
+export const PrintTemplateHeader = () => {
   document.querySelector("header").innerHTML = template();
   addListeners();
 };
