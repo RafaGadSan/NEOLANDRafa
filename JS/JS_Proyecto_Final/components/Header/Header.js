@@ -1,3 +1,5 @@
+import { printTemplateDashboard } from "../../pages";
+import { initControler } from "../../utils/route";
 import "./Header.css";
 
 //!hacemos un template de lo que sería el header con su nav todo chuli
@@ -34,7 +36,7 @@ const addListeners = () => {
   //evento del botón del menú de juegos
   const buttonDashboard = document.getElementById("buttonDashboard");
   buttonDashboard.addEventListener("click", (e) => {
-    console.log(e);
+    initControler("Dashboard");
   });
   //evento del logout
   const buttonLogout = document.getElementById("buttonLogout");
@@ -44,7 +46,7 @@ const addListeners = () => {
 };
 
 //!Aquí se exporta el template que acabamos de hacer y los eventos.
-export const printTemplate = () => {
+export const printTemplateHeader = () => {
   document.querySelector("header").innerHTML = template();
   //añadimos los listeners a la plantilla
   addListeners();

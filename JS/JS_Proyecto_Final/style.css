@@ -4,5 +4,11 @@
   box-sizing: border-box;
   & main {
     padding-top: 20vh;
+    /*La altura son 70+ el 20 del padding*/
+    min-height: 90vh;
+    padding-bottom: 10vh;
+  }
+  #app {
+    min-height: 100vh;
   }
 }

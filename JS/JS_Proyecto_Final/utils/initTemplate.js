@@ -1,4 +1,4 @@
-import { printTemplate as Header } from "../components";
+import { printTemplateHeader, printTemplateFooter } from "../components";
 
 export const initTemplate = () => {
   const app = document.getElementById("app");
@@ -11,5 +11,6 @@ export const initTemplate = () => {
   //Inyectamos los elementos creados
   //!ATENCIÓN, debe pintar después de insertar con el append, sino no puede pintar en lo que aún no existe
   app.append(header, main, footer);
-  Header();
+  printTemplateHeader();
+  printTemplateFooter();
 };
