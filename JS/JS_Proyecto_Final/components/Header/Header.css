@@ -1,0 +1,46 @@
+header {
+  height: 20vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  -webkit-box-shadow: 0px 8px 30px -3px rgba(0, 0, 0, 0.61);
+  -moz-box-shadow: 0px 8px 30px -3px rgba(0, 0, 0, 0.61);
+  box-shadow: 0px 8px 30px -3px rgba(0, 0, 0, 0.61);
+  background-color: rgba(0, 0, 0, 0.61);
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
+
+  & nav img {
+    width: 20%;
+    margin: 0.8em;
+    @media (max-width: 600px) {
+      wight: 40%;
+    }
+    transition: ease-in-out 0.3s;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+  /*si en vez de & .logo pongo &.logo todo junto no aplica estilos 
+  aunque es más específico, para ello pondríamos .logo &*/
+  & .logo {
+    width: 20vw;
+    max-height: 20vh;
+    /*con el object-fit cover, hace que no se deforme.*/
+    object-fit: cover;
+    @media (max-width: 600px) {
+      wight: 30vw;
+      height: 10vh;
+    }
+  }
+  & nav {
+    width: 30vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
