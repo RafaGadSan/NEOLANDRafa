@@ -1,0 +1,31 @@
+#filterButton {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  margin: 3rem 0 1rem 0;
+}
+
+.buttonFilter {
+  width: 5rem;
+  height: 2rem;
+  border-radius: 5px;
+  border-radius: 0.25rem;
+  border: solid 0.125rem #121212;
+  box-shadow: 0.25rem 0.25rem #121212;
+  font-size: large;
+  text-transform: uppercase;
+  &:active {
+    transform: translate(0.125rem, 0.125rem);
+    box-shadow: 0.125rem 0.125rem #121212;
+  }
+  transition: 0.15s;
+  &:hover {
+    -webkit-box-shadow: 0px 0px 38px px 1px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 0px 38px px 1px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 38px px 1px rgba(0, 0, 0, 0.3);
+    transform: scale(0.95);
+  }
+}

@@ -1,26 +1,28 @@
+import { getUser } from "../../global/state/globalState";
 import { printTemplateDashboard } from "../../pages";
+import { changeColorRGB } from "../../utils";
 import { initControler } from "../../utils/route";
 import "./Header.css";
 
 //!hacemos un template de lo que sería el header con su nav todo chuli
 const template = () => `<img
-    src="https://res.cloudinary.com/dq186ej4c/image/upload/v1682679162/header_giqdug.jpg"
+    src="https://res.cloudinary.com/ds5eoiiqk/image/upload/v1690125967/game_over_t2dor3.png"
     alt="title hub game website (app)"
     class="logo"
   />
   <nav>
     <img
-      src="https://res.cloudinary.com/dq186ej4c/image/upload/v1682684561/changeColor_tat29q.png"
+      src="https://res.cloudinary.com/ds5eoiiqk/image/upload/v1690131660/cubito_fqpcsk.gif"
       alt=" change to style mode page"
       id="changeColor"
     />
     <img
-      src="https://res.cloudinary.com/dq186ej4c/image/upload/v1682685633/home_nekvs0.png"
+      src="https://res.cloudinary.com/ds5eoiiqk/image/upload/v1690126564/arcade_machine_qac2av.gif"
       alt=" navigate to home app"
       id="buttonDashboard"
     />
     <img
-      src="https://res.cloudinary.com/dq186ej4c/image/upload/v1682679055/logout_arz0gw.png"
+      src="https://res.cloudinary.com/ds5eoiiqk/image/upload/v1690126880/bye_lmdwlm.gif"
       alt="logout"
       id="buttonLogout"
     />
@@ -31,7 +33,8 @@ const addListeners = () => {
   //evento del botón de cambio de color
   const changeColor = document.getElementById("changeColor");
   changeColor.addEventListener("click", (e) => {
-    console.log(e.target.id);
+    const color = changeColorRGB();
+    document.body.style.background = color;
   });
   //evento del botón del menú de juegos
   const buttonDashboard = document.getElementById("buttonDashboard");
@@ -41,12 +44,20 @@ const addListeners = () => {
   //evento del logout
   const buttonLogout = document.getElementById("buttonLogout");
   buttonLogout.addEventListener("click", (e) => {
-    console.log(e);
+    const userState = getUser().name;
+    const currentUser = localStorage.getItem(userState);
+    const parseCurrentUser = JSON.parse(currentUser);
+    const updateUser = { ...parseCurrentUser, token: false };
+    const stringUpdateUser = JSON.stringify(updateUser);
+    localStorage.removeItem(userState);
+    sessionStorage.removeItem("currentUser");
+    localStorage.setItem(userState, stringUpdateUser);
+    initControler("Login");
   });
 };
 
 //!Aquí se exporta el template que acabamos de hacer y los eventos.
-export const printTemplateHeader = () => {
+export const PrintTemplateHeader = () => {
   document.querySelector("header").innerHTML = template();
   //añadimos los listeners a la plantilla
   addListeners();

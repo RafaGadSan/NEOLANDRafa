@@ -2,13 +2,23 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Press Start 2P", cursive;
+  font-family: "Roboto Condensed", sans-serif;
+
   & main {
     padding-top: 20vh;
     /*La altura son 70+ el 20 del padding*/
     min-height: 90vh;
     padding-bottom: 10vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  #app {
+  & #app {
     min-height: 100vh;
+  }
+  & body {
+    transition: ease-in-out 0.3s;
   }
 }

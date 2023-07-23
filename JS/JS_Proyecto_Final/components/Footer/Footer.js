@@ -1,5 +1,5 @@
 import "./Footer.css";
-const template = () => `<h3>With Love Neoland</h3>`;
-export const printTemplateFooter = () => {
+const template = () => `<h3>QUE GANE EL MEJOR</h3>`;
+export const PrintTemplateFooter = () => {
   document.querySelector("footer").innerHTML = template();
 };
