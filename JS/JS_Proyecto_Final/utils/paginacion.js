@@ -18,30 +18,28 @@ export const Paginacion = (data, numberElement) => {
       pag.style.borderRadius = "0.25rem ";
       pag.style.fontSize = "large";
       pag.style.boxShadow = "0.25rem 0.25rem #121212;";
+      pag.style.backgroundColor = "#ffff55";
     });
-    allButton[0].style.border = "solid 3px #15a00e7d";
+    allButton[0].style.border = "solid 3px #0079b6";
     allButton[0].style.color = " #083905ff";
   }
 
   CardsPokemons(data.slice(0, numberElement));
 };
 
-const addListeners = (
-  buttonNumber,
-  data,
-  numberElement,
-  i,
-  numberDigitOfPage
-) => {
+const addListeners = (buttonNumber, data, numberElement, i) => {
   buttonNumber.addEventListener("click", () => {
     const allButtonPag = document.querySelectorAll(".buttonPaginacion");
 
     allButtonPag.forEach((pag) => {
-      pag.style.border = "solid 3px #0000006d ";
+      pag.style.border = "solid 0.125rem #121212 ";
+      pag.style.borderRadius = "0.25rem ";
+      pag.style.fontSize = "large";
+      pag.style.boxShadow = "0.25rem 0.25rem #121212;";
     });
 
-    buttonNumber.style.border = "solid 3px #15a00e7d ";
-    buttonNumber.style.color = " #093f06ff";
+    buttonNumber.style.border = "solid 3px #0079b6";
+    buttonNumber.style.color = " #083905ff";
 
     const end = (i + 1) * numberElement;
     const start = end - numberElement < 0 ? 0 : end - numberElement;

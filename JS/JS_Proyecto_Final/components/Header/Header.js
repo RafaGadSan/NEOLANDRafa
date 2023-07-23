@@ -22,7 +22,7 @@ const template = () => `<img
       id="buttonDashboard"
     />
     <img
-      src="https://res.cloudinary.com/ds5eoiiqk/image/upload/v1690126880/bye_lmdwlm.gif"
+      src="https://res.cloudinary.com/ds5eoiiqk/image/upload/v1690152103/rage_quit_nnrt7h.gif"
       alt="logout"
       id="buttonLogout"
     />

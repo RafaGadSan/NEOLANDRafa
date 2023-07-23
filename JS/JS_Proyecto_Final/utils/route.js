@@ -18,6 +18,15 @@ export const initControler = (pagesRender) => {
     case "Topo":
       "Topo()";
       break;
+    case "Quiz":
+      "Quiz()";
+      break;
+    case "TresEnRaya":
+      "TresEnRaya()";
+      break;
+    case "Ahorcado":
+      "Ahorcado()";
+      break;
     case "Login":
       Login();
       break;

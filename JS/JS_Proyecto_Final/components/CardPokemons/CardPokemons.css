@@ -7,8 +7,8 @@
   align-items: center;
   flex-direction: column;
   margin: 1rem;
+  transition: 2s;
   &:hover {
-    transition: 2s;
     transform: scale(1.3);
   }
   & img {
@@ -17,7 +17,6 @@
     transition: 2s;
     &:hover {
       transform: rotate(360deg);
-      -webkit-transform: rotate(360deg);
     }
   }
 }
@@ -25,10 +24,15 @@
   background-color: #63bb5b75;
 }
 figure.grass {
+  background-size: cover;
+  background-image: url("https://res.cloudinary.com/ds5eoiiqk/image/upload/v1690146364/grass_kydexs.svg");
+
   border: 10px solid #63bb5b;
 }
 
 figure.bug {
+  background-image: url("https://res.cloudinary.com/ds5eoiiqk/image/upload/v1690146366/bug_louuck.svg");
+  background-size: cover;
   border: 10px solid #8fc12c;
 }
 .bug {
@@ -36,18 +40,26 @@ figure.bug {
 }
 
 figure.dark {
+  background-size: cover;
+  background-image: url("https://res.cloudinary.com/ds5eoiiqk/image/upload/v1690146366/dark_krlnju.svg");
   border: 10px solid #5a5366;
 }
 .dark {
   background-color: #5a536687;
 }
+
 figure.dragon {
+  background-size: cover;
+  background-image: url("https://res.cloudinary.com/ds5eoiiqk/image/upload/v1690146367/dragon_kumutg.svg");
   border: 10px solid #0a6dc4;
 }
 .dragon {
   background-color: #0a6dc482;
 }
+
 figure.electric {
+  background-size: cover;
+  background-image: url("https://res.cloudinary.com/ds5eoiiqk/image/upload/v1690146366/electric_o9dvby.svg");
   border: 10px solid #f3d13b;
 }
 .electric {
@@ -55,12 +67,17 @@ figure.electric {
 }
 
 figure.fairy {
+  background-size: cover;
+  background-image: url("https://res.cloudinary.com/ds5eoiiqk/image/upload/v1690146364/fairy_xw9nir.svg");
   border: 10px solid #ec8fe6;
 }
 .fairy {
   background-color: #ec8fe67e;
 }
+
 figure.fighting {
+  background-size: cover;
+  background-image: url("https://res.cloudinary.com/ds5eoiiqk/image/upload/v1690146363/fighting_rxd46v.svg");
   border: 10px solid #ce4068;
 }
 .fighting {
@@ -68,6 +85,8 @@ figure.fighting {
 }
 
 figure.fire {
+  background-size: cover;
+  background-image: url("https://res.cloudinary.com/ds5eoiiqk/image/upload/v1690146364/fire_wtmczq.svg");
   border: 10px solid #ff9b54;
 }
 .fire {
@@ -75,12 +94,17 @@ figure.fire {
 }
 
 figure.flying {
+  background-size: cover;
+  background-image: url("https://res.cloudinary.com/ds5eoiiqk/image/upload/v1690146364/flying_qvjqle.svg");
   border: 10px solid #8fa8dd;
 }
 .flying {
   background-color: #8fa8dd7c;
 }
+
 figure.ghost {
+  background-size: cover;
+  background-image: url("https://res.cloudinary.com/ds5eoiiqk/image/upload/v1690146364/ghost_so7s4o.svg");
   border: 10px solid #5269ac;
 }
 .ghost {
@@ -88,18 +112,26 @@ figure.ghost {
 }
 
 figure.ground {
+  background-size: cover;
+  background-image: url("https://res.cloudinary.com/ds5eoiiqk/image/upload/v1690146365/ground_c7swji.svg");
   border: 10px solid #d97746;
 }
 .ground {
   background-color: #d977467c;
 }
+
 figure.ice {
+  background-size: cover;
+  background-image: url("https://res.cloudinary.com/ds5eoiiqk/image/upload/v1690146365/ice_pu8dkj.svg");
   border: 10px solid #74cec1;
 }
 .ice {
   background-color: #74cec17e;
 }
+
 figure.normal {
+  background-size: cover;
+  background-image: url("https://res.cloudinary.com/ds5eoiiqk/image/upload/v1690146365/normal_v1uybq.svg");
   border: 10px solid #9099a1;
 }
 .normal {
@@ -107,6 +139,8 @@ figure.normal {
 }
 
 figure.poison {
+  background-size: cover;
+  background-image: url("https://res.cloudinary.com/ds5eoiiqk/image/upload/v1690146365/poison_nzsnkx.svg");
   border: 10px solid #aa6ac8;
 }
 .poison {
@@ -114,12 +148,17 @@ figure.poison {
 }
 
 figure.psychic {
+  background-size: cover;
+  background-image: url("https://res.cloudinary.com/ds5eoiiqk/image/upload/v1690146365/psychic_px618z.svg");
   border: 10px solid #f97176;
 }
 .psychic {
   background-color: #f971767e;
 }
+
 figure.rock {
+  background-size: cover;
+  background-image: url("https://res.cloudinary.com/ds5eoiiqk/image/upload/v1690146366/rock_qzzbfa.svg");
   border: 10px solid #c7b78b;
 }
 .rock {
@@ -127,12 +166,17 @@ figure.rock {
 }
 
 figure.steel {
+  background-size: cover;
+  background-image: url("https://res.cloudinary.com/ds5eoiiqk/image/upload/v1690146367/steel_cstmqm.svg");
   border: 10px solid #5a8ea1;
 }
 .steel {
   background-color: #5a8ea17e;
 }
+
 figure.water {
+  background-size: cover;
+  background-image: url("https://res.cloudinary.com/ds5eoiiqk/image/upload/v1690146366/water_ng5bnr.svg");
   border: 10px solid #4d91d5;
 }
 .water {
