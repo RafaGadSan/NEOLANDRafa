@@ -16,7 +16,7 @@ export const dataPokemon = async () => {
 const dataMap = (data) => {
   const filterData = data.map((pokemon) => ({
     name: pokemon.name,
-    image: pokemon.sprites.other.dream_world.front_default,
+    image: pokemon.sprites.front_default,
     type: pokemon.types,
   }));
   const types = typePokemon(filterData);

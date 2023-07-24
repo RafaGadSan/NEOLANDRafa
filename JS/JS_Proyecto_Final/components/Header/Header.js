@@ -12,7 +12,7 @@ const template = () => `<img
   />
   <nav>
     <img
-      src="https://res.cloudinary.com/ds5eoiiqk/image/upload/v1690131660/cubito_fqpcsk.gif"
+      src="https://res.cloudinary.com/ds5eoiiqk/image/upload/v1690131569/paleta2_l3ojae.gif"
       alt=" change to style mode page"
       id="changeColor"
     />
