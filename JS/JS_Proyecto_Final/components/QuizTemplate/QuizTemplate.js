@@ -1,199 +1,81 @@
-export const template = () => ` 
-  <div class="container">
-    <section id="p0">
-      <h2>1 - ¿Cuál es la capital de Italia?</h2>
-      <label>
-        <input
-            class="entrada"
-            id="00"
-          type="radio"
-          value="1"
-          name="p0"
-          
-        />Turín</label
-      >
-      <label>
-        <input
-            class="entrada"
-            id="01"
-          type="radio"
-          value="2"
-          name="p0"
-          
-        />Nápoles</label
-      >
-      <label>
-        <input
-            class="entrada"
-            id="02"
-          type="radio"
-          value="3"
-          name="p0"
-          
-        />Roma</label
-      >
-    </section>
-    <section id="p1">
-      <h2>2 - ¿Cuál es la capital de Noruega?</h2>
-      <label>
-        <input
-            class="entrada"
-            id="10"
-          type="radio"
-          value="1"
-          name="p1"
-          
-        />Oslo</label
-      >
-      <label>
-        <input
-            class="entrada"
-            id="11"
-          type="radio"
-          value="2"
-          name="p1"
-          
-        />Bucarest</label
-      >
-      <label>
-        <input
-            class="entrada"
-            id="12"
-          type="radio"
-          value="3"
-          name="p1"
-          
-        />Madrid</label
-      >
-    </section>
-    <section id="p2">
-      <h2>3 - ¿Cuál es la capital de Perú?</h2>
-      <label>
-        <input
-            class="entrada"
-            id="20" type="radio" value="1" name="p2"  />La
-        Paz</label
-      >
-      <label>
-        <input
-            class="entrada"
-            id="21"
-          type="radio"
-          value="2"
-          name="p2"
-          
-        />Ciudad de Perú</label
-      >
-      <label>
-        <input
-            class="entrada"
-            id="22"
-          type="radio"
-          value="3"
-          name="p2"
-          
-        />Lima</label
-      >
-    </section>
-    <section id="p3">
-      <h2>4 - ¿Cuál es la capital de Suecia?</h2>
-      <label>
-        <input
-            class="entrada"
-            id="30"
-          type="radio"
-          value="1"
-          name="p3"
-          
-        />Gotemburgo</label
-      >
-      <label>
-        <input
-            class="entrada"
-            id="31"
-          type="radio"
-          value="2"
-          name="p3"
-          
-        />Estocolmo</label
-      >
-      <label>
-        <input
-            class="entrada"
-            id="32"
-          type="radio"
-          value="3"
-          name="p3"
-          
-        />Lima</label
-      >
-    </section>
-    <section id="p4">
-      <h2>5 - ¿Cuál es la capital de Canadá?</h2>
-      <label>
-        <input
-            class="entrada"
-            id="40"
-          type="radio"
-          value="1"
-          name="p4"
-          
-        />Candberra</label
-      >
-      <label>
-        <input
-            class="entrada"
-            id="41"
-          type="radio"
-          value="2"
-          name="p4"
-          
-        />Toronto</label
-      >
-      <label>
-        <input
-            class="entrada"
-            id="42"
-          type="radio"
-          value="3"
-          name="p4"
-          
-        />Ottawa</label
-      >
-    </section>
-    <section id="p5">
-      <h2>6 - ¿Cuál es la capital de Suecia?</h2>
-      <label>
-        <input
-            class="entrada"
-            id="50"
-          type="radio"
-          value="1"
-          name="p5"
-          
-        />Gotemburgo</label
-      >
-      <label>
-        <input
-            class="entrada"
-            id="51"
-          type="radio"
-          value="2"
-          name="p5"
-          
-        />Estocolmo</label
-      >
-      <label>
-        <input
-            class="entrada"
-            id="52"
-          type="radio"
-          value="3"
-          name="p5"
-          
-        />Lima</label
-      >
-    </section>
-    <button id="bCorregir">CORREGIR</button>
-    <h2>Cantidades acertadas: <span id="resultado"></span></h2>
-  </div>`;
+export const template = () => ` <div class="container">
+  <section id="p0">
+    <h2>1 - el primer juego de arcade salió en 1971. ¿Cómo se llamaba?</h2>
+    <label>
+      <input class="entrada" type="radio" value="1" name="p0" />Pong</label
+    >
+    <label>
+      <input class="entrada" type="radio" value="2" name="p0" />Computer Space</label
+    >
+    <label>
+      <input class="entrada" type="radio" value="3" name="p0" />Galaxian</label
+    >
+  </section>
+  <section id="p1">
+    <h2>2 - ¿Cuál de estos videojuegos está ampliamente considerado como el más vendido de todos los tiempos?</h2>
+    <label>
+      <input class="entrada" type="radio" value="1" name="p1" />Minecraft</label
+    >
+    <label>
+      <input class="entrada" type="radio" value="2" name="p1" />Super Mario Bros.</label
+    >
+    <label>
+      <input class="entrada" type="radio" value="3" name="p1" />Grand Theft Auto</label
+    >
+  </section>
+  <section id="p2">
+    <h2>3 - La consola de videojuegos más vendida de todos los tiempos es PlayStation 2 de Sony. También fue la primera consola de juegos dotada de...</h2>
+    <label>
+      <input class="entrada" type="radio" value="1" name="p2" />Conexión a internet</label
+    >
+    <label>
+      <input class="entrada" type="radio" value="2" name="p2" />Controles inalámbricos</label
+    >
+    <label>
+      <input class="entrada" type="radio" value="3" name="p2" />Un reproductor de DVD incorporado</label
+    >
+  </section>
+  <section id="p3">
+    <h2>4 - Dejando de lado su prohibición en Alemania por su uso de iconografía nazi, Wolfenstein 3D es famoso por fundar, ¿qué género de videojuegos?</h2>
+    <label>
+      <input
+        class="entrada"
+        type="radio"
+        value="1"
+        name="p3"
+      />Beat'em up</label
+    >
+    <label>
+      <input class="entrada" type="radio" value="2" name="p3" />Shooter de disparo en primera persona</label
+    >
+    <label>
+      <input class="entrada" type="radio" value="3" name="p3" />Battle royale</label
+    >
+  </section>
+  <section id="p4">
+    <h2>5 - A cualquiera que haya jugado Tetris se le habrá quedado grabada en la cabeza la melodía, aunque solo sea una vez. ¿En qué está basado el tema de la canción?</h2>
+    <label>
+      <input class="entrada" type="radio" value="1" name="p4" />Una canción folclórica rusa</label
+    >
+    <label>
+      <input class="entrada" type="radio" value="2" name="p4" />Una canción de juerga alemana</label
+    >
+    <label>
+      <input class="entrada" type="radio" value="3" name="p4" />Una canción de amor francesa</label
+    >
+  </section>
+  <section id="p5">
+  <h2>5 - ¿Los juegos de smartphone cuentan como videojuegos? Por supuesto que sí. ¿Cuál es el juego de celular que más veces se ha descargado de todos los tiempos?</h2>
+  <label>
+    <input class="entrada" type="radio" value="1" name="p5" />Pokemon Go</label
+  >
+  <label>
+    <input class="entrada" type="radio" value="2" name="p5" />Angry Birds</label
+  >
+  <label>
+    <input class="entrada" type="radio" value="3" name="p5" />Candy Crush</label
+  >
+</section>
+  <button id="bCorregir">CORREGIR</button>
+  <h2>Cantidades acertadas: <span id="resultado"></span></h2>
+</div>`;

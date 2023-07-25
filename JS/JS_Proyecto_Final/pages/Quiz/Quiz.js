@@ -7,7 +7,7 @@ export const printTemplateQuiz = () => {
 };
 
 //Los value correctos del input  son estos.
-let correctas = [3, 1, 2, 2, 3];
+let correctas = [2, 1, 3, 2, 1, 1];
 
 const addEventListeners = () => {
   const boton = document.getElementById("bCorregir");
