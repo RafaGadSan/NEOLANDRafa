@@ -1,3 +1,27 @@
+@keyframes animacionFrontal {
+  0% {
+    transform: translateY(0) rotateX(0) scale(1);
+    transform-origin: 50% 0%;
+  }
+  50% {
+    transform: translateY(-50%) rotateX(-90deg) scale(2);
+    transform-origin: 50% 50%;
+  }
+  100% {
+    transform: translateY(-100%) rotateX(-180deg) scale(1);
+    transform-origin: 50% 100%;
+  }
+}
+
+/*.back {
+  backface-visibility: hidden;
+
+  transform: rotateY(180deg);
+}
+.tazo:hover .figurePokemon .back {
+  animation: animacionFrontal 2s linear both;
+}
+/*Flip raro debajo*/
 figure,
 .back,
 .tazo {
@@ -6,20 +30,25 @@ figure,
 }
 figure {
   z-index: 2;
-  transition: 0.5s;
 }
+
+/**/
 
 .back {
   backface-visibility: hidden;
-  transition: 0.3s;
-  transform: rotateY(180deg);
+
+  transform: rotateX(180deg);
 }
 
 .tazo:hover figure {
-  transform: rotateY(1800deg);
+  animation: animacionFrontal 0.5s linear both;
+  /*transform: rotateY(1800deg);*/
 }
 .tazo:hover .back {
-  transform: rotateY(360deg);
+  /*animation: animacionFrontal 2s linear both;*/
+  transition: 0.75s;
+  /*transition: 2s linear;*/
+  transform: rotateX(360deg);
 }
 
 /*CODIGO VIEJO*/

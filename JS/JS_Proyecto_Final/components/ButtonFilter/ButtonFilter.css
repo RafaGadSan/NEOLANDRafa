@@ -4,18 +4,21 @@
   justify-content: center;
   align-items: center;
   gap: 1rem;
-
   margin: 3rem 0 1rem 0;
 }
 
 .buttonFilter {
-  width: 5rem;
-  height: 2rem;
+  display: flex;
+  flex: 1;
+  max-width: fit-content;
+  min-width: 150px;
+  /*width: 5rem;
+  height: 2rem;*/
   border-radius: 5px;
   border-radius: 0.25rem;
   border: solid 0.125rem #121212;
   box-shadow: 0.25rem 0.25rem #121212;
-  font-size: large;
+
   text-transform: uppercase;
   &:active {
     transform: translate(0.125rem, 0.125rem);

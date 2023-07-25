@@ -1,5 +1,10 @@
 import { getUser } from "../global/state/globalState";
-import { Login, PrintPokemonPage, printTemplateDashboard } from "../pages";
+import {
+  Login,
+  PrintPokemonPage,
+  printTemplateDashboard,
+  printTemplateQuiz,
+} from "../pages";
 
 //Aquí controlamos los que se va renderizando
 
@@ -19,7 +24,7 @@ export const initControler = (pagesRender) => {
       "Topo()";
       break;
     case "Quiz":
-      "Quiz()";
+      printTemplateQuiz();
       break;
     case "TresEnRaya":
       "TresEnRaya()";
