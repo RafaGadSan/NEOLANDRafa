@@ -5,6 +5,7 @@ import {
   printTemplateDashboard,
   printTemplateQuiz,
   printTemplateMemory,
+  printTemplateTopo,
 } from "../pages";
 
 //Aquí controlamos los que se va renderizando
@@ -22,7 +23,7 @@ export const initControler = (pagesRender) => {
       printTemplateDashboard();
       break;
     case "Topo":
-      "Topo()";
+      printTemplateTopo();
       break;
     case "Quiz":
       printTemplateQuiz();

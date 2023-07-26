@@ -1,4 +1,5 @@
 import { template } from "../../components/MemoryTemplate/MemoryTemplate";
+import { intervalos, limpiadorTiempos } from "../../utils";
 import "./Memory.css";
 import JSConfetti from "js-confetti";
 
@@ -12,6 +13,7 @@ let firstCard, secondCard;
 let contador = 0;
 let ok = 0;
 let segundos;
+
 let intervalo;
 //! -------------------------------------------------------la logica DEL JUEGO -----------
 const flipCard = (e, card) => {
@@ -75,7 +77,8 @@ const shuffle = () => {
   });
   addListeners(cards);
   segundos = 60;
-  intervalo = setInterval(time, 1000);
+  // intervalo = setInterval(time, 1000);
+  intervalo = intervalos(time, 1000);
 };
 
 const addListeners = (cards) => {
@@ -97,7 +100,8 @@ const checkInterval = () => {
   //console.log(segundos);
   if (segundos === 0) {
     //console.log("entro en los segundos");
-    clearInterval(intervalo);
+    // clearInterval(intervalo);
+    limpiadorTiempos(intervalo, "intervalo");
     const timer = document.getElementById("time");
     timer.innerHTML = "";
     const memory = document.querySelector(".memory-game");
@@ -113,7 +117,7 @@ const checkInterval = () => {
       const jsConfetti = new JSConfetti();
 
       jsConfetti.addConfetti({
-        emojis: ["😪"],
+        emojis: ["🎉", "💥"],
       });
     }
     //!---------------------------------------------------------------------

@@ -75,6 +75,10 @@ export const addEventListeners = () => {
   navigateMemory.addEventListener("click", () => {
     initControler("Memory");
   });
+  const navigateTopo = document.getElementById("navigateTopo");
+  navigateTopo.addEventListener("click", () => {
+    initControler("Topo");
+  });
 };
 
 export const printTemplateDashboard = () => {

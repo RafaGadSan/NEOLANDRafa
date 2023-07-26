@@ -1,6 +1,6 @@
 import { getUser } from "../../global/state/globalState";
 import { printTemplateDashboard } from "../../pages";
-import { changeColorRGB } from "../../utils";
+import { changeColorRGB, fulminarTiempos } from "../../utils";
 import { initControler } from "../../utils/route";
 import "./Header.css";
 
@@ -39,11 +39,13 @@ const addListeners = () => {
   //evento del botón del menú de juegos
   const buttonDashboard = document.getElementById("buttonDashboard");
   buttonDashboard.addEventListener("click", (e) => {
+    fulminarTiempos();
     initControler("Dashboard");
   });
   //evento del logout
   const buttonLogout = document.getElementById("buttonLogout");
   buttonLogout.addEventListener("click", (e) => {
+    fulminarTiempos();
     const userState = getUser().name;
     const currentUser = localStorage.getItem(userState);
     const parseCurrentUser = JSON.parse(currentUser);

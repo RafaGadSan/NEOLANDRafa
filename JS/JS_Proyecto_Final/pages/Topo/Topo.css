@@ -1,0 +1,43 @@
+.todo {
+  width: 100vw;
+  height: 70vh;
+  text-align: center;
+  background: url("https://res.cloudinary.com/ds5eoiiqk/image/upload/v1690402098/mario-bg_pllmss.jpg");
+  background-size: cover;
+}
+
+#board {
+  width: 60vw;
+  height: 60vh;
+  /* background-color: green; */
+
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  background: url("https://res.cloudinary.com/ds5eoiiqk/image/upload/v1690402098/soil_vqdgdo.png");
+  background-size: cover;
+  border: 3px solid white;
+  border-radius: 25px;
+}
+
+#board div {
+  /* board = 540 x 540, divide into 3x3 tiles --> 180 x 180 per div */
+  width: 18vw;
+  height: 18vh;
+  background-image: url("https://res.cloudinary.com/ds5eoiiqk/image/upload/v1690402098/pipe_myeylh.png");
+  background-size: cover;
+}
+
+#board div img {
+  /* all img tags inside tiles */
+  width: 9vw;
+  height: 9vh;
+
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
