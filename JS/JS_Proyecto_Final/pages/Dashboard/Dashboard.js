@@ -71,6 +71,10 @@ export const addEventListeners = () => {
   navigateQuiz.addEventListener("click", () => {
     initControler("Quiz");
   });
+  const navigateMemory = document.getElementById("navigateMemory");
+  navigateMemory.addEventListener("click", () => {
+    initControler("Memory");
+  });
 };
 
 export const printTemplateDashboard = () => {

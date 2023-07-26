@@ -4,6 +4,7 @@ import {
   PrintPokemonPage,
   printTemplateDashboard,
   printTemplateQuiz,
+  printTemplateMemory,
 } from "../pages";
 
 //Aquí controlamos los que se va renderizando
@@ -36,7 +37,7 @@ export const initControler = (pagesRender) => {
       Login();
       break;
     case "Memory":
-      "Memory()";
+      printTemplateMemory();
       break;
   }
 };
