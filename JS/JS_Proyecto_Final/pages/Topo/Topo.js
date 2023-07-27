@@ -25,6 +25,12 @@ function setGame() {
     let tile = document.createElement("div");
     tile.id = i.toString();
     tile.addEventListener("click", selectTile);
+    /* let tuberia = document.createElement("img");
+    tuberia.src =
+      "https://res.cloudinary.com/ds5eoiiqk/image/upload/v1690402098/pipe_myeylh.png";
+    tuberia.alt = "tubería";
+    tuberia.classList.add("tuberia");
+    tile.appendChild(tuberia);*/
     document.getElementById("board").appendChild(tile);
   }
   intervalMole = intervalos(setMole, 1000);

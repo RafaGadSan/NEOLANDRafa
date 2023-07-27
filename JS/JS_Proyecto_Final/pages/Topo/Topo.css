@@ -3,10 +3,11 @@
   height: 70vh;
   text-align: center;
   background: url("https://res.cloudinary.com/ds5eoiiqk/image/upload/v1690402098/mario-bg_pllmss.jpg");
-  background-size: cover;
+  background-size: contain;
 }
 
 #board {
+  max-width: 600px;
   width: 60vw;
   height: 60vh;
   /* background-color: green; */
@@ -20,10 +21,24 @@
   background-size: cover;
   border: 3px solid white;
   border-radius: 25px;
+  @media (max-width: 450px) {
+    max-height: 200px;
+    max-width: 200px;
+  }
 }
+/*
+@media only screen and (max-width: 600px) {...}
 
+@media only screen and (min-width: 600px) {...}
+
+@media only screen and (min-width: 768px) {...}
+
+@media only screen and (min-width: 992px) {...}
+
+@media only screen and (min-width: 1200px) {...}*/
 #board div {
   /* board = 540 x 540, divide into 3x3 tiles --> 180 x 180 per div */
+  max-width: 160px;
   width: 18vw;
   height: 18vh;
   background-image: url("https://res.cloudinary.com/ds5eoiiqk/image/upload/v1690402098/pipe_myeylh.png");
