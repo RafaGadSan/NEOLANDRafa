@@ -6,6 +6,7 @@ import {
   printTemplateQuiz,
   printTemplateMemory,
   printTemplateTopo,
+  printAhorcado,
 } from "../pages";
 
 //Aquí controlamos los que se va renderizando
@@ -29,10 +30,10 @@ export const initControler = (pagesRender) => {
       printTemplateQuiz();
       break;
     case "TresEnRaya":
-      "TresEnRaya()";
+      "printTemplateTresEnRaya()";
       break;
     case "Ahorcado":
-      "Ahorcado()";
+      printAhorcado();
       break;
     case "Login":
       Login();

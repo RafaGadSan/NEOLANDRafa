@@ -6,3 +6,4 @@ export * from "./ButtonFilter/ButtonFilter";
 export * from "./MemoryTemplate/MemoryTemplate";
 export * from "./TresEnRayaTemplate/TresEnRayaTemplate";
 export * from "./TopoTemplate/TopoTemplate";
+export * from "./Ahorcado/Ahorcado";

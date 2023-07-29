@@ -79,6 +79,15 @@ export const addEventListeners = () => {
   navigateTopo.addEventListener("click", () => {
     initControler("Topo");
   });
+
+  const navigateAhorcado = document.getElementById("navigateAhorcado");
+  navigateAhorcado.addEventListener("click", () => {
+    initControler("Ahorcado");
+  });
+  // const navigateTresEnRaya = document.getElementById("navigateRaya");
+  // navigateTresEnRaya.addEventListener("click", () => {
+  //   initControler("TresEnRaya");
+  // });
 };
 
 export const printTemplateDashboard = () => {

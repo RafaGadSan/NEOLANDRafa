@@ -1,33 +1,100 @@
-body {
-  background-color: #a2bedb;
+/*html {
+  box-sizing: border-box;
 }
-#titulo {
-  color: red;
-  font-family: Impact, Charcoal, sans-serif;
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
-td {
+body {
+  background-color: #996E89;
+  font-family: "Comfortaa", sans-serif;
+}
+
+h1 {
+  font-family: "Lobster", serif;
+}
+
+.message {
+  color: #fff;
+  font-size: 1.5em;
+  padding-bottom: 1em;
+}
+
+form {
+  label {
+    font-size: 4em;
+    font-weight: bold;
+    vertical-align: middle;
+  }
+  input[type=radio] {
+    margin: 1em;
+    cursor: pointer;
+  }
+  fieldset {
+    display: block;
+    opacity: 1;
+    transition: all ease 1s;  
+  }
+  &.game-on fieldset {
+    opacity: 0;
+    display: none;
+  }    
+  &.game-on button {
+    opacity: 1;
+    display: block;
+    margin: 0 auto;
+  }
+ 
+}
+
+#grid-section {
+  margin: 3em 0;
+}
+
+#grid {
+  width: 300px;
+  margin: 0 auto;
+}
+
+li {
+  border: 1px solid #000;
   width: 100px;
   height: 100px;
-  border: 4px solid orange;
-  font-size: 60px;
-  color: red;
+  display: block;
+  float: left;
+  font-size: 3em;
   text-align: center;
+  padding: .5em;
 }
-#tablero {
-  border-radius: 9px;
-  background-color: #646996;
-  /*#fce28d; naranja para cambiar*/
+
+#c1, #c2, #c3 {
+  border-top: none;
 }
-.btn-warning {
-  border-radius: 9px;
-  color: blue;
-  font-weight: bold;
+
+#c3, #c6, #c9 {
+  border-right: none;
 }
-#final {
-  align-content: center;
+
+#c7, #c8, #c9 {
+  border-bottom: none;
 }
-#mensaje {
-  font-size: 1.5em;
-  color: red;
+
+#c1, #c4, #c7 {
+  border-left: none;
 }
+
+.winner {
+  color: #9AE1E5;
+}
+
+.btn-primary, 
+.btn-primary:focus {
+  background-color: #33B7A5;
+  opacity: 0;
+  outline: 0;  
+  transition: all ease .3s;
+}
+
+.btn-primary:hover {
+  background-color: #4C2F39;
+}*/
