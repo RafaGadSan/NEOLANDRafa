@@ -1,4 +1,4 @@
-export const template = () => ` <div class="container">
+export const template = () => ` <div class="containerAhorcado">
   <div id="izquierda" class="izquierda"> 
     <img 
       class="ahorcadoimage"

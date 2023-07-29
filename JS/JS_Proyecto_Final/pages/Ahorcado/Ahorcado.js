@@ -15,7 +15,6 @@ const getRandomWorld = () => {
   //y que no tenga acentos
   const regex = /[áéíóúÁÉÍÓÚ]/;
   console.log(palabra);
-  console.log(palabra.length);
   if (regex.test(palabra) || palabra.length < 7) {
     return getRandomWorld();
   } else {
