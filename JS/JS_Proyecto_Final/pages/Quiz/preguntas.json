@@ -1,0 +1,48 @@
+{
+  "preguntas": [
+    {
+      "pregunta": "¿Cuál es el nombre del personaje principal en la serie de juegos 'The Legend of Zelda'?",
+      "opciones": ["Link", "Zelda", "Ganon"]
+    },
+    {
+      "pregunta": "¿En qué juego te enfrentas al villano Bowser?",
+      "opciones": ["Super Mario Bros.", "Sonic the Hedgehog", "Street Fighter"]
+    },
+    {
+      "pregunta": "¿Cuál es el nombre del fontanero verde en los juegos de Nintendo?",
+      "opciones": ["Luigi", "Mario", "Wario"]
+    },
+    {
+      "pregunta": "¿En qué juego exploras el mundo post-apocalíptico de la Commonwealth?",
+      "opciones": ["Fallout 4", "The Elder Scrolls V: Skyrim", "Mass Effect"]
+    },
+    {
+      "pregunta": "¿Cuál es el juego de disparos en primera persona desarrollado por Valve Corporation?",
+      "opciones": ["Half-Life", "Final Fantasy", "World of Warcraft"]
+    },
+    {
+      "pregunta": "¿En qué juego se encuentra la ciudad de Los Santos?",
+      "opciones": ["Grand Theft Auto V", "Watch Dogs", "Red Dead Redemption"]
+    },
+    {
+      "pregunta": "¿Qué juego popularizó el género Battle Royale?",
+      "opciones": ["PlayerUnknown's Battlegrounds", "Call of Duty", "Minecraft"]
+    },
+    {
+      "pregunta": "¿Qué serie de juegos de rol fue desarrollada por BioWare?",
+      "opciones": ["Mass Effect", "Dark Souls", "The Witcher"]
+    },
+    {
+      "pregunta": "¿En qué juego controlas a Aloy, una cazadora y arquera en un mundo dominado por robots?",
+      "opciones": [
+        "Horizon Zero Dawn",
+        "Assassin's Creed Odyssey",
+        "Shadow of the Tomb Raider"
+      ]
+    },
+    {
+      "pregunta": "¿Qué juego de rol post-apocalíptico presenta a personajes como Dogmeat y Piper?",
+      "opciones": ["Fallout 4", "The Last of Us", "Doom"]
+    }
+  ]
+}
