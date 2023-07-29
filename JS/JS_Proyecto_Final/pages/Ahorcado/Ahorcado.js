@@ -52,12 +52,16 @@ const addEventListeners = () => {
 
   boton.addEventListener("click", () => {
     //Compruebo la letra
+    if (numIntentos > numMaximoIntentos) {
+      printAhorcado();
+    }
     const letra = document.getElementById("entradaLetra").value;
 
     const letraLower = letra.toLowerCase();
 
     if (checkLetra(letrasElegidas, letraLower)) {
       mensaje.innerText = "Ya has dicho esa letra";
+      return;
     } else {
       letrasElegidas.push(letraLower);
     }
@@ -70,7 +74,15 @@ const addEventListeners = () => {
       mensaje.innerText = "Oh No!, la letra no esta.";
       numIntentos = numIntentos + 1;
       intentosHtml.innerText = numIntentos;
-      image.scr = srcAhorcado[numIntentos];
+      image.src = srcAhorcado[numIntentos];
+    }
+    if (letrasElegidas.length == palabraRealLower.length) {
+      mensaje.innerText = "Enhorabuena! Has salvado a casimiro!";
+    }
+    if (numIntentos == numMaximoIntentos) {
+      numIntentos = numIntentos + 1;
+      mensaje.innerText = "Vaya... esto no ha acabado bien";
+      boton.innerText = "resetear";
     }
   });
 };
