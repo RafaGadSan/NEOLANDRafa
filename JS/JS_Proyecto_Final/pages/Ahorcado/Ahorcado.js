@@ -1,11 +1,28 @@
 import { template } from "../../components/Ahorcado/Ahorcado";
 import "./Ahorcado.css";
+//metemos una librería de palabras españolas aleatorias
+import randomWords from "random-spanish-words";
 
 export const printAhorcado = () => {
   document.querySelector("main").innerHTML = template();
   addEventListeners();
 };
 
+//cogemos una palabra aleatoria
+const getRandomWorld = () => {
+  const palabra = randomWords(1)[0];
+  //indicamos que la palabra sea de al menos 7 letras
+  //y que no tenga acentos
+  const regex = /[áéíóúÁÉÍÓÚ]/;
+  console.log(palabra);
+  console.log(palabra.length);
+  if (regex.test(palabra) || palabra.length < 7) {
+    return getRandomWorld();
+  } else {
+    return palabra;
+  }
+};
+//visualizamos la palabra con guiones.
 const replaceAll = (palabra, letras) => {
   let excluirletras = "";
   for (let letra of letras) {
@@ -28,7 +45,7 @@ const checkLetra = (letrasElegidas, letra) => {
 
 const addEventListeners = () => {
   const boton = document.getElementById("enviarLetra");
-  const palabraReal = "gusanito";
+  const palabraReal = getRandomWorld();
   const palabraRealLower = palabraReal.toLowerCase();
   const palabra = document.getElementById("palabra");
   palabra.innerText = palabraReal.replace(/./g, "-");
@@ -56,7 +73,9 @@ const addEventListeners = () => {
       printAhorcado();
     }
     const letra = document.getElementById("entradaLetra").value;
-
+    if (letra.length == 0) {
+      return;
+    }
     const letraLower = letra.toLowerCase();
 
     if (checkLetra(letrasElegidas, letraLower)) {
@@ -78,6 +97,8 @@ const addEventListeners = () => {
     }
     if (letrasElegidas.length == palabraRealLower.length) {
       mensaje.innerText = "Enhorabuena! Has salvado a casimiro!";
+      boton.innerText = "resetear";
+      numIntentos = 1 + numMaximoIntentos;
     }
     if (numIntentos == numMaximoIntentos) {
       numIntentos = numIntentos + 1;

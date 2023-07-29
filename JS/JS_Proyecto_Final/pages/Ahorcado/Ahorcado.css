@@ -1,27 +1,29 @@
 .container {
-  width: 100vw;
+  width: 40vw;
   height: 70vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  justify-content: space-around;
+
   & img {
     max-height: 30vh;
     max-width: 30vw;
   }
-  .izquierda {
+  & .izquierda {
     width: 25%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-  .derecha {
+  & .derecha {
     width: 75%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    & button {
+      width: 150px;
+    }
   }
 }
