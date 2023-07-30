@@ -13,7 +13,7 @@ const getRandomWorld = () => {
   const palabra = randomWords(1)[0];
   //indicamos que la palabra sea de al menos 7 letras
   //y que no tenga acentos
-  const regex = /[áéíóúÁÉÍÓÚ]/;
+  const regex = /[áéíóúÁÉÍÓÚüÜ]/;
   console.log(palabra);
   if (regex.test(palabra) || palabra.length < 7) {
     return getRandomWorld();
@@ -67,10 +67,11 @@ const addEventListeners = () => {
   image.src = srcAhorcado[numIntentos];
 
   boton.addEventListener("click", () => {
-    //Compruebo la letra
+    //compruebo que no haya superado los inentos
     if (numIntentos > numMaximoIntentos) {
       printAhorcado();
     }
+    //Compruebo la letra
     const letra = document.getElementById("entradaLetra").value;
     if (letra.length == 0) {
       return;
@@ -94,11 +95,19 @@ const addEventListeners = () => {
       intentosHtml.innerText = numIntentos;
       image.src = srcAhorcado[numIntentos];
     }
-    if (letrasElegidas.length == palabraRealLower.length) {
-      mensaje.innerText = "Enhorabuena! Has salvado a casimiro!";
+    //Condición de victoria
+
+    //compruebo si el array de caracteres contiene todos los caracteres del string
+    if (
+      [...palabraRealLower].every(
+        (letra) => letrasElegidas.indexOf(letra) !== -1
+      )
+    ) {
+      mensaje.innerText = "Enhorabuena! Has salvado a Casimiro!";
       boton.innerText = "resetear";
       numIntentos = 1 + numMaximoIntentos;
     }
+    //condicion de derrota
     if (numIntentos == numMaximoIntentos) {
       numIntentos = numIntentos + 1;
       mensaje.innerText = "Vaya... esto no ha acabado bien";

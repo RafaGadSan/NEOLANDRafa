@@ -20,18 +20,21 @@ function setGame() {
   score = 0;
   document.getElementById("score").innerText = score.toString();
   gameOver = false;
-  //meto las celdas
-  for (let i = 0; i < 9; i++) {
-    let tile = document.createElement("div");
-    tile.id = i.toString();
-    tile.addEventListener("click", selectTile);
-    /* let tuberia = document.createElement("img");
+  //compruebo que no estén las celdas ya creadas
+  if (!document.getElementById("1")) {
+    //meto las celdas
+    for (let i = 0; i < 9; i++) {
+      let tile = document.createElement("div");
+      tile.id = i.toString();
+      tile.addEventListener("click", selectTile);
+      /* let tuberia = document.createElement("img");
     tuberia.src =
       "https://res.cloudinary.com/ds5eoiiqk/image/upload/v1690402098/pipe_myeylh.png";
     tuberia.alt = "tubería";
     tuberia.classList.add("tuberia");
     tile.appendChild(tuberia);*/
-    document.getElementById("board").appendChild(tile);
+      document.getElementById("board").appendChild(tile);
+    }
   }
   intervalMole = intervalos(setMole, 1000);
   intervalPlant = intervalos(setPlant, 1500);

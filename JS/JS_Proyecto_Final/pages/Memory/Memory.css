@@ -4,6 +4,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   @media (max-height: 855px) {
     flex-direction: row;
   }
@@ -13,8 +14,8 @@
   padding: 1rem;
 }
 .memory-game {
-  max-width: 700px;
-  max-height: 550px;
+  max-width: 550px;
+  /* max-height: 550px; */
   width: 80vw;
   height: 70vh;
   margin: auto;

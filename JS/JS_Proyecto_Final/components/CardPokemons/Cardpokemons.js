@@ -10,7 +10,7 @@ export const CardsPokemons = (data) => {
         <h2>${pokemon.name}</h2>
         <img
         class="back"
-        src="https://res.cloudinary.com/ds5eoiiqk/image/upload/v1690208780/tazo_chulo_eyotix.png"
+        src="https://res.cloudinary.com/ds5eoiiqk/image/upload/a_hflip/a_180/v1690208780/tazo_chulo_eyotix.png"
       />
       </figure>
     </div>`;

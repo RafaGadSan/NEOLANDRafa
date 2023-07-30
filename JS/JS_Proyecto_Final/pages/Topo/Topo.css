@@ -1,15 +1,17 @@
 .todo {
-  width: 100vw;
-  height: 70vh;
+  max-height: 70vh;
   text-align: center;
-  background: url("https://res.cloudinary.com/ds5eoiiqk/image/upload/v1690402098/mario-bg_pllmss.jpg");
-  background-size: contain;
+  /*background: url("https://res.cloudinary.com/ds5eoiiqk/image/upload/v1690402098/mario-bg_pllmss.jpg");
+  background-size: contain;*/
+  & button {
+    padding: 0;
+  }
 }
 
 #board {
-  max-width: 600px;
-  width: 60vw;
-  height: 60vh;
+  max-width: 400px;
+  width: 400px;
+  height: 435px;
   /* background-color: green; */
 
   margin: 0 auto;
@@ -39,16 +41,16 @@
 #board div {
   /* board = 540 x 540, divide into 3x3 tiles --> 180 x 180 per div */
   max-width: 160px;
-  width: 18vw;
-  height: 18vh;
+  width: 125px;
+  height: 125px;
   background-image: url("https://res.cloudinary.com/ds5eoiiqk/image/upload/v1690402098/pipe_myeylh.png");
-  background-size: cover;
+  background-size: 125px;
 }
 
 #board div img {
   /* all img tags inside tiles */
-  width: 9vw;
-  height: 9vh;
+  width: 70px;
+  height: 70px;
 
   user-select: none;
   -moz-user-select: none;
