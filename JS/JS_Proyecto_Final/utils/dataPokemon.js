@@ -18,6 +18,8 @@ const dataMap = (data) => {
     name: pokemon.name,
     image: pokemon.sprites.front_default,
     type: pokemon.types,
+    height: pokemon.height,
+    weight: pokemon.weight,
   }));
   const types = typePokemon(filterData);
   dataGlobal = {
