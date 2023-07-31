@@ -1,0 +1,13 @@
+{
+  "name": "1.-leeryescribir",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "write": "node write.js",
+    "read": "node read.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

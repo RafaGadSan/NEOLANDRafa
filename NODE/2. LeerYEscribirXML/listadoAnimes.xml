@@ -1,0 +1,42 @@
+<listadoAnimes>
+  <animes>
+    <nombre>Naruto</nombre>
+    <genero>Acción</genero>
+    <genero>Aventura</genero>
+    <genero>Fantasía</genero>
+    <estudio>Pierrot</estudio>
+    <year>2002</year>
+  </animes>
+  <animes>
+    <nombre>One Piece</nombre>
+    <genero>Acción</genero>
+    <genero>Aventura</genero>
+    <genero>Comedia</genero>
+    <estudio>Toei Animation</estudio>
+    <year>1999</year>
+  </animes>
+  <animes>
+    <nombre>Attack on Titan</nombre>
+    <genero>Acción</genero>
+    <genero>Drama</genero>
+    <genero>Fantasía</genero>
+    <estudio>Wit Studio</estudio>
+    <year>2013</year>
+  </animes>
+  <animes>
+    <nombre>My Hero Academia</nombre>
+    <genero>Acción</genero>
+    <genero>Escolar</genero>
+    <genero>Superpoderes</genero>
+    <estudio>Bones</estudio>
+    <year>2016</year>
+  </animes>
+  <animes>
+    <nombre>Death Note</nombre>
+    <genero>Sobrenatural</genero>
+    <genero>Thriller</genero>
+    <genero>Misterio</genero>
+    <estudio>Madhouse</estudio>
+    <year>2006</year>
+  </animes>
+</listadoAnimes>
