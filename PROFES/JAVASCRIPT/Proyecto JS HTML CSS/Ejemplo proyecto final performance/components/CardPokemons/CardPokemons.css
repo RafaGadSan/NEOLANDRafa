@@ -16,6 +16,10 @@
   }
 }
 
+.like {
+  color: red;
+}
+
 @keyframes rebota {
   100% {
     transform: translateY(5px);

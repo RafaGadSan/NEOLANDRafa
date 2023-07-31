@@ -1,0 +1,17 @@
+{
+  "name": "1.-readandwrite",
+  "version": "1.0.0",
+  "description": " aplicacion que lee y escribe archivos json",
+  "main": "read.js",
+  "scripts": {
+    "write": "node write.js",
+    "read": "node read.js"
+  },
+  "keywords": [
+    "json",
+    "readJson",
+    "writeJson"
+  ],
+  "author": "pedroleni",
+  "license": "ISC"
+}

@@ -1,0 +1,17 @@
+<alumnsNeolandROOT>
+  <alumns>
+    <name>Rodri</name>
+    <age>43</age>
+    <job>dev</job>
+  </alumns>
+  <alumns>
+    <name>Laura</name>
+    <age>37</age>
+    <job>libreria</job>
+  </alumns>
+  <alumns>
+    <name>Antonio</name>
+    <age>33</age>
+    <job>dev</job>
+  </alumns>
+</alumnsNeolandROOT>

@@ -14,7 +14,8 @@ const getRandomWorld = () => {
   //indicamos que la palabra sea de al menos 7 letras
   //y que no tenga acentos
   const regex = /[áéíóúÁÉÍÓÚüÜ]/;
-  console.log(palabra);
+  //console.log(palabra);
+  regex.test(palabra) || palabra.length < 7;
   if (regex.test(palabra) || palabra.length < 7) {
     return getRandomWorld();
   } else {

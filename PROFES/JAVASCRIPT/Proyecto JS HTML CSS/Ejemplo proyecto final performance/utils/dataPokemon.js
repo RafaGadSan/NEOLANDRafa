@@ -20,6 +20,7 @@ const dataMap = (data) => {
     name: pokemon.name,
     image: pokemon.sprites.other.dream_world.front_default,
     type: pokemon.types,
+    id: pokemon.id,
   }));
 
   const types = typePokemon(filterData);
