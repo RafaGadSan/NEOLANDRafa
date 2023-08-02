@@ -1,0 +1,17 @@
+const sentence = "Que me quedo si comer";
+
+const searchWord = "comer";
+
+const letter = "o";
+
+console.log(
+  `The word ${searchWord} exist in sentece: ${sentence.indexOf(searchWord)}`
+);
+
+console.log(
+  `The word ${searchWord} exist in sentece: ${sentence.indexOf("Hola")}`
+);
+
+console.log(
+  `The word ${searchWord} exist in sentece: ${sentence.lastIndexOf(letter)}`
+);

@@ -1,0 +1,17 @@
+{
+  "name": "6.1.--game",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^9.2.9",
+    "puppeteer": "^20.9.0"
+  }
+}

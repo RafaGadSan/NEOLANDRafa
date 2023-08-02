@@ -1,0 +1,13 @@
+{
+  "name": "5.--correct-text",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "corregir": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
