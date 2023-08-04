@@ -22,7 +22,7 @@ const getRandomWorld = () => {
     return palabra;
   }
 };
-//visualizamos la palabra con guiones.
+//remplazamos el guión por la letra acertada y el resto en guiones
 const replaceAll = (palabra, letras) => {
   let excluirletras = "";
   for (let letra of letras) {
