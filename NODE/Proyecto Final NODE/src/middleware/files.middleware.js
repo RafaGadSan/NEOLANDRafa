@@ -5,6 +5,7 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 
+//Creamos el almacén
 const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
@@ -13,8 +14,10 @@ const storage = new CloudinaryStorage({
   },
 });
 
+//Función subir imágenes
 const upload = multer({ storage });
 
+//Función de borrar imágenes
 const deleteImgCloudinary = (imgUrl) => {
   const imgSplited = imgUrl.split("/");
   const nameSplited = imgSplited[imgSplited.length - 1].split(".");
