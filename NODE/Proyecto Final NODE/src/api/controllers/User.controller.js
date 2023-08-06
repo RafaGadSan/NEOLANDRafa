@@ -7,6 +7,9 @@ const User = require("../models/user.model");
 const nodemailer = require("nodemailer");
 const { generateToken } = require("../../utils/token");
 const randomPassword = require("../../utils/randomPassword");
+const PORT = process.env.PORT;
+const BASE_URL = process.env.BASE_URL;
+const BASE_URL_COMPLETE = `${BASE_URL}${PORT}`;
 
 const registerSlow = async (req, res, next) => {
   let catchImg = req.file?.path;
@@ -264,7 +267,9 @@ const changePassword = async (req, res, next) => {
     } else {
       return res.status(404).json("User no register");
     }
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const sendPassword = async (req, res, next) => {
