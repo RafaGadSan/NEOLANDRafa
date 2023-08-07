@@ -262,7 +262,7 @@ const changePassword = async (req, res, next) => {
 
       return res.redirect(
         307,
-        `${BASE_URL_COMPLETE}/api/v1/users/sendPassword/${userDb._id}`
+        `http://localhost:8080/api/v1/users/sendPassword/${userDb._id}`
       );
     } else {
       return res.status(404).json("User no register");

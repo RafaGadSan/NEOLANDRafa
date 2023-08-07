@@ -27,7 +27,7 @@ UserRoutes.patch("/update/update", [isAuth], upload.single("image"), update);
 UserRoutes.delete("/", [isAuth], deleteUser);
 UserRoutes.post("/check", checkNewUser);
 
-//UserRoutes.get("/sendPassword/:id", sendPassword);
+UserRoutes.patch("/sendPassword/:id", sendPassword);
 
 //UserRoutes.get("/forgotpassword", changePassword);
 module.exports = UserRoutes;
