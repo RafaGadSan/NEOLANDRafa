@@ -77,8 +77,12 @@ app.use(express.urlencoded({ limit: "5mb", extended: false }));
 //RUTAS
 
 const UserRoutes = require("./src/api/routes/user.routes");
+const IngredientRoutes = require("./src/api/routes/ingredient.routes");
+const RecipeRoutes = require("./src/api/routes/recipe.routes");
 
 app.use("/api/v1/users", UserRoutes);
+app.use("/api/v1/ingredients", IngredientRoutes);
+app.use("/api/v1/recipes", RecipeRoutes);
 
 app.use("*", (req, res, next) => {
   const error = new Error("Ruta no encontrada");

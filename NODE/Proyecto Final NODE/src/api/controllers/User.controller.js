@@ -10,6 +10,8 @@ const randomPassword = require("../../utils/randomPassword");
 const PORT = process.env.PORT;
 const BASE_URL = process.env.BASE_URL;
 const BASE_URL_COMPLETE = `${BASE_URL}${PORT}`;
+const Ingredient = require("../models/ingredient.model");
+const Recipe = require("../models/recipe.model");
 
 const registerSlow = async (req, res, next) => {
   let catchImg = req.file?.path;
@@ -450,12 +452,170 @@ const deleteUser = async (req, res, next) => {
   try {
     const { _id, image } = req.user;
     await User.findByIdAndDelete(_id);
+    //
+    try {
+      await Ingredient.updateMany(
+        { usersFav: _id },
+        { $pull: { usersFav: _id } }
+      );
+      try {
+        await Recipe.updateMany(
+          { usersFav: _id },
+          { $pull: { usersFav: _id } }
+        );
+      } catch (error) {
+        return res
+          .status(400)
+          .json("error borrando las recetas cuando borras user");
+      }
+    } catch (error) {
+      return res
+        .status(400)
+        .json("error borrando los ingredientes cuando borras user");
+    }
+    //
     if (await User.findById(_id)) {
       return res.status(404).json("Dont delete");
     } else {
       deleteImgCloudinary(image);
       return res.status(200).json("ok delete");
     }
+  } catch (error) {
+    return next(error);
+  }
+};
+
+//! ------------toggle fav ingredient------------
+
+const toggleFavIngredient = async (req, res, next) => {
+  try {
+    const { _id } = req.user;
+    const { ingredients } = req.body;
+    const arrayIngredients = ingredients.split(",");
+    arrayIngredients.forEach(async (element) => {
+      if (req.user.ingredientsFav.includes(element)) {
+        // si lo incluye lo sacamos
+        try {
+          await User.findByIdAndUpdate(_id, {
+            $pull: { ingredientsFav: element },
+          });
+
+          try {
+            await Ingredient.findByIdAndUpdate(element, {
+              $pull: { usersFav: _id },
+            });
+          } catch (error) {
+            return res.status(404).json({
+              error: "error updating pull id User in model ingredient",
+              message: error.message,
+            });
+          }
+        } catch (error) {
+          return res.status(404).json({
+            error: "error updating pull ingredient",
+            element,
+            message: error.message,
+          });
+        }
+      } else {
+        // si no lo incluye lo metemos
+        try {
+          await User.findByIdAndUpdate(_id, {
+            $push: { ingredientsFav: element },
+          });
+          try {
+            await Ingredient.findByIdAndUpdate(element, {
+              $push: { usersFav: _id },
+            });
+          } catch (error) {
+            return res.status(404).json({
+              error: "error updating push id User in model ingredient",
+              message: error.message,
+            });
+          }
+        } catch (error) {
+          return res.status(404).json({
+            error: "error updating push ingredient",
+            element,
+            message: error.message,
+          });
+        }
+      }
+    });
+
+    setTimeout(async () => {
+      return res
+        .status(200)
+        .json(await User.findById(_id).populate("ingredientsFav"));
+    }, 100);
+  } catch (error) {
+    return next(error);
+  }
+};
+
+//! --------------toggle fav recipe--------------
+
+const toggleFavRecipe = async (req, res, next) => {
+  try {
+    const { _id } = req.user;
+    const { recipes } = req.body;
+    const arrayRecipes = recipes.split(",");
+    arrayRecipes.forEach(async (element) => {
+      if (req.user.recipesFav.includes(element)) {
+        // si lo incluye lo sacamos
+        try {
+          await User.findByIdAndUpdate(_id, {
+            $pull: { recipesFav: element },
+          });
+
+          try {
+            await Recipe.findByIdAndUpdate(element, {
+              $pull: { usersFav: _id },
+            });
+          } catch (error) {
+            return res.status(404).json({
+              error: "error updating pull id User in model recipe",
+              message: error.message,
+            });
+          }
+        } catch (error) {
+          return res.status(404).json({
+            error: "error updating pull recipe",
+            element,
+            message: error.message,
+          });
+        }
+      } else {
+        // si no lo incluye lo metemos
+        try {
+          await User.findByIdAndUpdate(_id, {
+            $push: { recipesFav: element },
+          });
+          try {
+            await Recipe.findByIdAndUpdate(element, {
+              $push: { usersFav: _id },
+            });
+          } catch (error) {
+            return res.status(404).json({
+              error: "error updating push id User in model recipe",
+              message: error.message,
+            });
+          }
+        } catch (error) {
+          return res.status(404).json({
+            error: "error updating push recipe",
+            element,
+            message: error.message,
+          });
+        }
+      }
+    });
+
+    setTimeout(async () => {
+      return res
+        .status(200)
+        .json({ user: await User.findById(_id).populate("recipesFav") });
+    }, 300);
   } catch (error) {
     return next(error);
   }
@@ -472,4 +632,6 @@ module.exports = {
   update,
   deleteUser,
   checkNewUser,
+  toggleFavIngredient,
+  toggleFavRecipe,
 };

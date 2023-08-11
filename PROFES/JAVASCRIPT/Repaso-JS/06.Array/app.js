@@ -76,3 +76,65 @@ console.log(arrayJoin.join("--------")); // --> A--------B--------C
 console.log(arrayJoin.length); // --> 3
 console.log(arrayFlatObject.length); // --> 5
 console.log(arrayFlat.length); // --> 5
+
+// ----------------- PUSH ------------------------ añade al final
+
+const arraypush = [1, 2, 3, 4];
+
+arraypush.push("Hola");
+console.log(arraypush);
+
+// ----------------- POP ------------------------ quita al final (sin parámetros)
+
+arraypush.pop();
+
+console.log(arraypush);
+
+// ----------------- UNSHIFT ------------------------ añade al PRINCIPIO y devuelve la LONGITUD -> modificando el array original
+
+const arrayUnshift = [1, 2, 3];
+
+//console.log(arrayUnshift.unshift(1, 4, 5));
+const arrayUpdate = arrayUnshift.unshift(1, 2, 3);
+console.log(arrayUnshift);
+console.log(arrayUpdate); // --> Devuelve la longitud del array actualizado
+
+// ----------------- SHIFT ------------------------ quita al principio --> nos devuelve el elemento eliminado
+
+const arrayShift = [9, 8, 7, 6];
+
+const arrayShitUpdate = arrayShift.shift();
+console.log(arrayShitUpdate); // --> devuelve el eliminado
+console.log(arrayShift);
+
+// ----------------- SLICE ------------------------ devuelve una copia desde el punto indicado
+
+const arraySlice = ["rana", "tortuga", "pez", "serpiente"];
+
+console.log(arraySlice.slice(1)); // Hasta el final
+
+console.log(arraySlice.slice(1, 2)); // 2º param es el límite no incluido
+
+// ----------------- SORT ------------------------ modifica el array original
+
+const arraySort = ["rana", "tortuga", "pez", "serpiente", "rata"];
+
+const arraySortUpdate = arraySort.sort();
+
+console.log(arraySort);
+console.log(arraySortUpdate);
+
+// --------------------- SPLICE ------------------------  1º-posicion 2º-elem a eliminar 3º-elem a introducir
+
+const meses = ["Enero", "Febrero", "Marzo"];
+
+meses.splice(1, 0, "pepe");
+console.log(meses);
+
+meses.splice(0, 2, "pepa");
+
+console.log(meses);
+
+// --------------------- TOSTRING ------------------------
+
+console.log(meses.toString());

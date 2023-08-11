@@ -26,7 +26,7 @@ const UserSchema = new mongoose.Schema(
     },
     rol: {
       type: String,
-      enum: ["admin", "user"],
+      enum: ["nutricionista", "cliente", "admin"],
       required: true,
     },
     confirmationCode: {
@@ -40,6 +40,10 @@ const UserSchema = new mongoose.Schema(
     image: {
       type: String,
     },
+    ingredientsFav: [
+      { type: mongoose.Schema.Types.ObjectId, ref: "Ingredient" },
+    ],
+    recipesFav: [{ type: mongoose.Schema.Types.ObjectId, ref: "Recipe" }],
   },
   {
     timestamps: true,
