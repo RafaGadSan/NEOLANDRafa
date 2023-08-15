@@ -261,6 +261,7 @@ const deleteRecipe = async (req, res, next) => {
         { recipes: id },
         { $pull: { recipe: id } }
       );
+      deleteImgCloudinary(req.recipe.image);
       return res.status(200).json({
         test: test.modifiedCount === test.matchedCount ? true : false,
       });
