@@ -1,6 +1,6 @@
-const { deleteImgCloudinary } = require("../../middleware/files.middleware");
-const Ingredient = require("../models/ingredient.model");
-const Recipe = require("../models/recipe.model");
+const { deleteImgCloudinary } = require('../../middleware/files.middleware');
+const Ingredient = require('../models/ingredient.model');
+const Recipe = require('../models/recipe.model');
 
 //!----------POSTCreate----------
 //Create ingredient
@@ -15,9 +15,9 @@ const postIngredient = async (req, res, next) => {
       newIngredient.image = cathIngredient;
     } else {
       newIngredient.image =
-        "https://res.cloudinary.com/ds5eoiiqk/image/upload/v1691592262/proyectoNode/ingredients/ingredientDefault_bilenj.jpg";
+        'https://res.cloudinary.com/ds5eoiiqk/image/upload/v1691592262/proyectoNode/ingredients/ingredientDefault_bilenj.jpg';
     }
-
+    newIngredient.owner = req.user.userId;
     //guardamos el ingrediente en la bbdd
     const savedIngredient = await newIngredient.save();
     if (savedIngredient) {
@@ -25,7 +25,7 @@ const postIngredient = async (req, res, next) => {
     } else {
       return res
         .status(404)
-        .json("No se ha podido guardar el ingrediente en la bbdd");
+        .json('No se ha podido guardar el ingrediente en la bbdd');
     }
   } catch (error) {
     req.file?.path && deleteImgCloudinary(cathIngredient);
@@ -42,7 +42,7 @@ const getIngredientById = async (req, res, next) => {
     if (ingredientById) {
       return res.status(200).json({ data: ingredientById });
     } else {
-      res.status(404).json("Ingrediente no encontrado");
+      res.status(404).json('Ingrediente no encontrado');
     }
   } catch (error) {
     return next(error);
@@ -57,7 +57,7 @@ const getAllIngredients = async (req, res, next) => {
     if (ingredientAll.length > 0) {
       return res.status(200).json({ data: ingredientAll });
     } else {
-      res.status(404).json("ingredientes no encontrados.");
+      res.status(404).json('ingredientes no encontrados.');
     }
   } catch (error) {
     return next(error);
@@ -91,7 +91,7 @@ const getByNameIngredient = async (req, res, next) => {
     if (ingredientByName.length > 0) {
       return res.status(200).json({ data: ingredientByName });
     } else {
-      return res.status(404).json("No se ha podido encontrar el ingrediente");
+      return res.status(404).json('No se ha podido encontrar el ingrediente');
     }
   } catch (error) {
     return next(error);
@@ -101,13 +101,14 @@ const getByNameIngredient = async (req, res, next) => {
 //!----------update----------
 
 const updateIngredient = async (req, res, next) => {
-  let catchImg = req.file?.path;
   try {
-    const { id } = req.params;
-    const ingredientById = await Ingredient.findById(id);
+    const id = req.params.id;
 
+    // const ingredientById = await checkIngredientPermissions(req, res, id);
+    // //si da un error en la función de checkRecipePermissions
+    // if (ingredientById.status) return;
+    const ingredientById = req.ingredient;
     if (ingredientById) {
-      const oldImg = ingredientById.image;
       const customBody = {
         _id: ingredientById._id,
         image: req.file?.path ? req.file?.path : ingredientById.image,
@@ -149,7 +150,7 @@ const updateIngredient = async (req, res, next) => {
       });
       //lanzamos respuesta
       let acc = 0;
-      for (clave in test) {
+      for (let clave in test) {
         if (test[clave] == false) acc++;
       }
 
@@ -165,91 +166,96 @@ const updateIngredient = async (req, res, next) => {
         });
       }
     } else {
-      return res.status(404).json("Ingrediente no encontrado");
+      return res.status(404).json('Ingrediente no encontrado');
     }
   } catch (error) {
     return next(error);
   }
 };
-//!--------toggle recipe(add or delete)--------
+// //!--------toggle recipe(add or delete)--------
 
-const toggleRecipe = async (req, res, next) => {
-  try {
-    let arrayRecipes;
-    const { id } = req.params;
-    const { recipes } = req.body;
+// const toggleRecipe = async (req, res, next) => {
+//   try {
+//     let arrayRecipes;
+//     const { id } = req.params;
+//     const { recipes } = req.body;
 
-    const ingredientById = await Ingredient.findById(id);
-    let updateIngredient;
-    let updateRec;
-    if (ingredientById) {
-      arrayRecipes = recipes.split(",");
-      arrayRecipes.forEach(async (element) => {
-        if (ingredientById.recipes.includes(element)) {
-          console.log("🥘");
-          try {
-            await Ingredient.findByIdAndUpdate(id, {
-              $pull: { recipes: element },
-            });
-            updateIngredient = await Ingredient.findById(id);
-            try {
-              await Recipe.findByIdAndUpdate(element, {
-                $pull: { ingredients: id },
-              });
-              updateRec = await Recipe.findById(element);
-            } catch (error) {
-              return res.status(404).json(error);
-            }
-          } catch (error) {
-            return res.status(404).json(error);
-          }
-        } else {
-          console.log("💙");
-          try {
-            await Ingredient.findByIdAndUpdate(id, {
-              $push: { recipes: element },
-            });
-            updateIngredient = await Ingredient.findById(id);
-            try {
-              await Recipe.findByIdAndUpdate(element, {
-                $push: { ingredients: id },
-              });
-              updateRec = await Recipe.findById(element);
-            } catch (error) {
-              return res.status(404).json(error);
-            }
-          } catch (error) {
-            return res.status(404).json(error);
-          }
-        }
-      });
+//     const ingredientById = await Ingredient.findById(id);
+//     let updateIngredient;
+//     let updateRec;
+//     if (ingredientById) {
+//       arrayRecipes = recipes.split(",");
+//       arrayRecipes.forEach(async (element) => {
+//         if (ingredientById.recipes.includes(element)) {
+//           console.log("🥘");
+//           try {
+//             await Ingredient.findByIdAndUpdate(id, {
+//               $pull: { recipes: element },
+//             });
+//             updateIngredient = await Ingredient.findById(id);
+//             try {
+//               await Recipe.findByIdAndUpdate(element, {
+//                 $pull: { ingredients: id },
+//               });
+//               updateRec = await Recipe.findById(element);
+//             } catch (error) {
+//               return res.status(404).json(error);
+//             }
+//           } catch (error) {
+//             return res.status(404).json(error);
+//           }
+//         } else {
+//           console.log("💙");
+//           try {
+//             await Ingredient.findByIdAndUpdate(id, {
+//               $push: { recipes: element },
+//             });
+//             updateIngredient = await Ingredient.findById(id);
+//             try {
+//               await Recipe.findByIdAndUpdate(element, {
+//                 $push: { ingredients: id },
+//               });
+//               updateRec = await Recipe.findById(element);
+//             } catch (error) {
+//               return res.status(404).json(error);
+//             }
+//           } catch (error) {
+//             return res.status(404).json(error);
+//           }
+//         }
+//       });
 
-      setTimeout(async () => {
-        return res.status(200).json({
-          update: await Ingredient.findById(id).populate({
-            path: "recipes",
-            populate: {
-              path: "ingredients",
-            },
-          }),
-        });
-      }, 500);
+//       setTimeout(async () => {
+//         return res.status(200).json({
+//           update: await Ingredient.findById(id).populate({
+//             path: "recipes",
+//             populate: {
+//               path: "ingredients",
+//             },
+//           }),
+//         });
+//       }, 500);
 
-      // POPULATE DE VARIAS CLAVES DEL MODELO CON PUNTOS: https://res.cloudinary.com/dhkbe6djz/image/upload/v1691401628/POPULATE_CON_PUNTOS_mfbngz.jpg
-      // POPULATE EN LINEA DE VARIAS CLAVES DEL MODELO: https://res.cloudinary.com/dhkbe6djz/image/upload/v1691401628/POPULATE_EN_LINEA_kmmnid.jpg
-    } else {
-      return res.status(404).json("Receta no encontrada");
-    }
-  } catch (error) {
-    return next(error);
-  }
-};
+//       // POPULATE DE VARIAS CLAVES DEL MODELO CON PUNTOS: https://res.cloudinary.com/dhkbe6djz/image/upload/v1691401628/POPULATE_CON_PUNTOS_mfbngz.jpg
+//       // POPULATE EN LINEA DE VARIAS CLAVES DEL MODELO: https://res.cloudinary.com/dhkbe6djz/image/upload/v1691401628/POPULATE_EN_LINEA_kmmnid.jpg
+//     } else {
+//       return res.status(404).json("Receta no encontrada");
+//     }
+//   } catch (error) {
+//     return next(error);
+//   }
+// };
 
 //!----------delete ingredient---------
 
 const deleteIngredient = async (req, res, next) => {
   try {
     const { id } = req.params;
+
+    // const ingredientById = await checkIngredientPermissions(req, res, id);
+    // //si da un error en la función de checkRecipePermissions
+    // if (ingredientById.status) return;
+
     await Ingredient.findByIdAndDelete(id);
     try {
       const test = await Recipe.updateMany(
@@ -260,7 +266,7 @@ const deleteIngredient = async (req, res, next) => {
         test: test.modifiedCount === test.matchedCount ? true : false,
       });
     } catch (error) {
-      return res.status(404).json("Error borrando el ingrediente");
+      return res.status(404).json('Error borrando el ingrediente');
     }
   } catch (error) {
     return next(error);
@@ -269,27 +275,40 @@ const deleteIngredient = async (req, res, next) => {
 
 //!------------top 5 protein----------
 
-const getTop5Protein = async (req, res, next) => {
+const getTop5Protein = async (req, res) => {
   try {
     const ingredientes = await Ingredient.find();
     ingredientes.sort((a, b) => b.protein - a.protein);
     const top5protein = ingredientes.slice(0, 5);
     return res.status(200).json(top5protein);
   } catch (error) {
-    return res.status(400).json("error trayendo el top 5 de proteinas");
+    return res.status(400).json('error trayendo el top 5 de proteinas');
   }
 };
 //!------------Top 5 con más favs---------
-const getTop5Fav = async (req, res, next) => {
+const getTop5Fav = async (req, res) => {
   try {
     const ingredientes = await Ingredient.find();
     ingredientes.sort((a, b) => b.usersFav.length - a.usersFav.length);
     const top5fav = ingredientes.slice(0, 5);
     return res.status(200).json(top5fav);
   } catch (error) {
-    return res.status(400).json("error trayendo el top 5 de proteinas");
+    return res.status(400).json('error trayendo el top 5 de proteinas');
   }
 };
+
+// const checkIngredientPermissions = async (req, res, id) => {
+//   const role = req.user.role;
+//   const ingredient = await Ingredient.findById(id).lean();
+
+//   if (
+//     role !== "admin" &&
+//     ingredient.owner.toString() !== req.user.userId.toString()
+//   )
+//     return res.status(403).json("No eres dueño de este ingrediente");
+
+//   return ingredient;
+// };
 
 module.exports = {
   postIngredient,
@@ -297,7 +316,7 @@ module.exports = {
   getAllIngredients,
   getByNameIngredient,
   updateIngredient,
-  toggleRecipe,
+  //toggleRecipe,
   deleteIngredient,
   getTop5Protein,
   getTop5Fav,

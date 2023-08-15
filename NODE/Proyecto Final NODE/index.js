@@ -51,16 +51,16 @@
 //   console.log(`Listening on PORT ${BASE_URL}${PORT}`);
 // });
 //!-------------------------------------ABAJO EL DE LAURA--------------
-const express = require("express");
+const express = require('express');
 
-const dotenv = require("dotenv");
+const dotenv = require('dotenv');
 
 dotenv.config();
 
-const { connect } = require("./src/utils/db");
+const { connect } = require('./src/utils/db');
 connect();
 
-const { configCloudinary } = require("./src/middleware/files.middleware");
+const { configCloudinary } = require('./src/middleware/files.middleware');
 
 configCloudinary();
 
@@ -71,21 +71,21 @@ const app = express();
 
 //limitaciones
 
-app.use(express.json({ limit: "5mb" }));
-app.use(express.urlencoded({ limit: "5mb", extended: false }));
+app.use(express.json({ limit: '5mb' }));
+app.use(express.urlencoded({ limit: '5mb', extended: false }));
 
 //RUTAS
 
-const UserRoutes = require("./src/api/routes/user.routes");
-const IngredientRoutes = require("./src/api/routes/ingredient.routes");
-const RecipeRoutes = require("./src/api/routes/recipe.routes");
+const UserRoutes = require('./src/api/routes/user.routes');
+const IngredientRoutes = require('./src/api/routes/ingredient.routes');
+const RecipeRoutes = require('./src/api/routes/recipe.routes');
 
-app.use("/api/v1/users", UserRoutes);
-app.use("/api/v1/ingredients", IngredientRoutes);
-app.use("/api/v1/recipes", RecipeRoutes);
+app.use('/api/v1/users', UserRoutes);
+app.use('/api/v1/ingredients', IngredientRoutes);
+app.use('/api/v1/recipes', RecipeRoutes);
 
-app.use("*", (req, res, next) => {
-  const error = new Error("Ruta no encontrada");
+app.use('*', (req, res, next) => {
+  const error = new Error('Ruta no encontrada');
   error.status = 404;
   return next(error);
 });
@@ -93,11 +93,11 @@ app.use("*", (req, res, next) => {
 app.use((error, req, res) => {
   return res
     .status(error.status || 500)
-    .json(error.message || "Error inesperado");
+    .json(error.message || 'Error inesperado');
 });
 
 //Evita que se revelen las tecnologías
-app.disable("x-powered-by");
+app.disable('x-powered-by');
 
 app.listen(PORT, () => {
   console.log(

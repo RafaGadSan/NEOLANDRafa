@@ -1,7 +1,7 @@
-const multer = require("multer");
-const cloudinary = require("cloudinary").v2;
-const { CloudinaryStorage } = require("multer-storage-cloudinary");
-const dotenv = require("dotenv");
+const multer = require('multer');
+const cloudinary = require('cloudinary').v2;
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
+const dotenv = require('dotenv');
 
 dotenv.config();
 
@@ -9,8 +9,8 @@ dotenv.config();
 const storageUser = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
-    folder: "proyectoNode/users",
-    allowedFormats: ["jpg", "png", "jpeg", "gif", "svg", "webp"],
+    folder: 'proyectoNode/users',
+    allowedFormats: ['jpg', 'png', 'jpeg', 'gif', 'svg', 'webp'],
   },
 });
 
@@ -21,8 +21,8 @@ const uploadUser = multer({ storage: storageUser });
 const storageRecipe = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
-    folder: "proyectoNode/recipes",
-    allowedFormats: ["jpg", "png", "jpeg", "gif", "svg", "webp"],
+    folder: 'proyectoNode/recipes',
+    allowedFormats: ['jpg', 'png', 'jpeg', 'gif', 'svg', 'webp'],
   },
 });
 
@@ -33,8 +33,8 @@ const uploadRecipe = multer({ storage: storageRecipe });
 const storageIngredient = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
-    folder: "proyectoNode/ingredients",
-    allowedFormats: ["jpg", "png", "jpeg", "gif", "svg", "webp"],
+    folder: 'proyectoNode/ingredients',
+    allowedFormats: ['jpg', 'png', 'jpeg', 'gif', 'svg', 'webp'],
   },
 });
 
@@ -43,13 +43,13 @@ const uploadIngredient = multer({ storage: storageIngredient });
 
 //Función de borrar imágenes User
 const deleteImgCloudinary = (imgUrl) => {
-  const imgSplited = imgUrl.split("/");
-  const nameSplited = imgSplited[imgSplited.length - 1].split(".");
+  const imgSplited = imgUrl.split('/');
+  const nameSplited = imgSplited[imgSplited.length - 1].split('.');
   const folderSplited = imgSplited[imgSplited.length - 3];
   const subFolderSplited = imgSplited[imgSplited.length - 2];
   const public_id = `${folderSplited}/${subFolderSplited}/${nameSplited[0]}`;
   cloudinary.uploader.destroy(public_id, () => {
-    console.log("Image delete in cloudinary");
+    console.log('Image delete in cloudinary');
   });
 };
 

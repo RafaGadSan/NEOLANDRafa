@@ -1,17 +1,15 @@
-const { deleteImgCloudinary } = require("../../middleware/files.middleware");
-const randomCode = require("../../utils/randomCode");
-const bcrypt = require("bcrypt");
-const dotenv = require("dotenv");
+const { deleteImgCloudinary } = require('../../middleware/files.middleware');
+const randomCode = require('../../utils/randomCode');
+const bcrypt = require('bcrypt');
+const dotenv = require('dotenv');
 dotenv.config();
-const User = require("../models/user.model");
-const nodemailer = require("nodemailer");
-const { generateToken } = require("../../utils/token");
-const randomPassword = require("../../utils/randomPassword");
-const PORT = process.env.PORT;
-const BASE_URL = process.env.BASE_URL;
-const BASE_URL_COMPLETE = `${BASE_URL}${PORT}`;
-const Ingredient = require("../models/ingredient.model");
-const Recipe = require("../models/recipe.model");
+const User = require('../models/user.model');
+const nodemailer = require('nodemailer');
+const { generateToken } = require('../../utils/token');
+const randomPassword = require('../../utils/randomPassword');
+const Ingredient = require('../models/ingredient.model');
+const Recipe = require('../models/recipe.model');
+const setError = require('../helpers/handle-error');
 
 const registerSlow = async (req, res, next) => {
   let catchImg = req.file?.path;
@@ -37,7 +35,7 @@ const registerSlow = async (req, res, next) => {
       if (req.file) {
         newUser.image = req.file.path;
       } else {
-        newUser.image = "https://pic.onlinewebfonts.com/svg/img_181369.png";
+        newUser.image = 'https://pic.onlinewebfonts.com/svg/img_181369.png';
       }
       // hacemos el guardado del elemento en mongodb
       try {
@@ -49,7 +47,7 @@ const registerSlow = async (req, res, next) => {
           const password = process.env.PASSWORD;
 
           const transporter = nodemailer.createTransport({
-            service: "gmail",
+            service: 'gmail',
             auth: {
               user: emailEnv,
               pass: password,
@@ -59,7 +57,7 @@ const registerSlow = async (req, res, next) => {
           const mailOptions = {
             from: emailEnv,
             to: email,
-            subject: "Confirmation code",
+            subject: 'Confirmation code',
             text: `tu codigo es ${confirmationCode}, gracias por confiar en nosotros ${name}`,
           };
 
@@ -69,10 +67,10 @@ const registerSlow = async (req, res, next) => {
               /// si ha habido un error en el envio del codigo lanzamos un 404
               return res.status(404).json({
                 user: userSave,
-                confirmationCode: "error, resend code",
+                confirmationCode: 'error, resend code',
               });
             } else {
-              console.log("Email sent: " + info.response);
+              console.log('Email sent: ' + info.response);
               /// si se ha enviado el código lanzamos el código con el user
               return res.status(200).json({
                 user: userSave,
@@ -87,7 +85,7 @@ const registerSlow = async (req, res, next) => {
     } else {
       // SI EXISTE EL USUARIO ENTONCES BORRAMOS LA IMAGEN QUE SUBIO EL MIDDLEWARE
       if (req.file) deleteImgCloudinary(catchImg);
-      return res.status(409).json("this user already exist");
+      return res.status(409).json('this user already exist');
     }
   } catch (error) {
     // SIEMPRE QUE HAY UN ERROR GENERAL TENEMOS QUE BORRAR LA IMAGEN QUE HA SUBIDO EL MIDDLEWARE
@@ -107,7 +105,7 @@ const checkNewUser = async (req, res, next) => {
     const userExists = await User.findOne({ email });
     if (!userExists) {
       //!No existe----> 404 de no se encuentra
-      return res.status(404).json("User not found");
+      return res.status(404).json('User not found');
     } else {
       // cogemos que comparamos que el codigo que recibimos por la req.body y el del userExists es igual
       if (confirmationCode === userExists.confirmationCode) {
@@ -126,7 +124,7 @@ const checkNewUser = async (req, res, next) => {
         }
       } else {
         /// En caso dec equivocarse con el codigo lo borramos de la base datos y lo mandamos al registro
-        const deleteUser = await User.findByIdAndDelete(userExists._id);
+        await User.findByIdAndDelete(userExists._id);
 
         // borramos la imagen
         deleteImgCloudinary(userExists.image);
@@ -137,14 +135,14 @@ const checkNewUser = async (req, res, next) => {
           userExists,
           check: false,
           delete: (await User.findById(userExists._id))
-            ? "error delete user"
-            : "ok delete user",
+            ? 'error delete user'
+            : 'ok delete user',
         });
       }
     }
   } catch (error) {
     // siempre en el catch devolvemos un 500 con el error general
-    return next(setError(500, "General error check code"));
+    return next(setError(500, 'General error check code'));
   }
 };
 
@@ -155,7 +153,7 @@ const resendCode = async (req, res, next) => {
     const email = process.env.EMAIL;
     const password = process.env.PASSWORD;
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      service: 'gmail',
       auth: {
         user: email,
         pass: password,
@@ -168,7 +166,7 @@ const resendCode = async (req, res, next) => {
       const mailOptions = {
         from: email,
         to: req.body.email,
-        subject: "Confirmation code",
+        subject: 'Confirmation code',
         text: `tu codigo es ${userExists.confirmationCode}`,
       };
 
@@ -176,17 +174,17 @@ const resendCode = async (req, res, next) => {
         if (error) {
           console.log(error);
         } else {
-          console.log("Email sent: " + info.response);
+          console.log('Email sent: ' + info.response);
           return res.status(200).json({
             resend: true,
           });
         }
       });
     } else {
-      return res.status(404).json("User not found");
+      return res.status(404).json('User not found');
     }
   } catch (error) {
-    return next(setError(500, error.message || "Error general send code"));
+    return next(setError(500, error.message || 'Error general send code'));
   }
 };
 
@@ -209,10 +207,10 @@ const login = async (req, res, next) => {
           token,
         });
       } else {
-        return res.status(404).json("password dont match");
+        return res.status(404).json('password dont match');
       }
     } else {
-      return res.status(404).json("User no register");
+      return res.status(404).json('User no register');
     }
   } catch (error) {
     return next(error);
@@ -234,10 +232,10 @@ const autoLogin = async (req, res, next) => {
           token,
         });
       } else {
-        return res.status(404).json("password dont match");
+        return res.status(404).json('password dont match');
       }
     } else {
-      return res.status(404).json("User no register");
+      return res.status(404).json('User no register');
     }
   } catch (error) {
     return next(error);
@@ -249,7 +247,7 @@ const autoLogin = async (req, res, next) => {
 // BASE_URL_COMPLETE = http://localhost:8080
 /// -----> al meter la url al .env, si cambiamos de servidor de aplicaciones como a railway
 ///... es mas facil cambiar lac url base del proyecto
-const changePassword = async (req, res, next) => {
+const changePassword = async (req, res) => {
   try {
     const { email } = req.body;
     // si el usuario existe entonces hacemos el redirect para
@@ -267,7 +265,7 @@ const changePassword = async (req, res, next) => {
         `http://localhost:8080/api/v1/users/sendPassword/${userDb._id}`
       );
     } else {
-      return res.status(404).json("User no register");
+      return res.status(404).json('User no register');
     }
   } catch (error) {
     console.log(error);
@@ -282,7 +280,7 @@ const sendPassword = async (req, res, next) => {
     const email = process.env.EMAIL;
     const password = process.env.PASSWORD;
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      service: 'gmail',
       auth: {
         user: email,
         pass: password,
@@ -295,7 +293,7 @@ const sendPassword = async (req, res, next) => {
     const mailOptions = {
       from: email,
       to: userDb.email,
-      subject: "-----",
+      subject: '-----',
       text: `User: ${userDb.name}. Your new code login is ${passwordSecure} Hemos enviado esto porque tenemos una solicitud de cambio de contraseña, si no has sido ponte en contacto con nosotros, gracias.`,
     };
 
@@ -304,9 +302,9 @@ const sendPassword = async (req, res, next) => {
       if (error) {
         // si hay error quiere decir que ni hemos actualizado el user, ni enviamos email
         console.log(error);
-        return res.status(404).json("dont send email and dont update user");
+        return res.status(404).json('dont send email and dont update user');
       } else {
-        console.log("Email sent: " + info.response);
+        console.log('Email sent: ' + info.response);
         // ----> si hemos enviado el correo, hasheamos la contraseña y actualizamos el user
         const newPasswordBcrypt = bcrypt.hashSync(passwordSecure, 10);
         try {
@@ -364,7 +362,7 @@ const modifyPassword = async (req, res, next) => {
         return res.status(404).json(error.message);
       }
     } else {
-      return res.status(404).json("password dont match");
+      return res.status(404).json('password dont match');
     }
   } catch (error) {
     return next(error);
@@ -466,19 +464,19 @@ const deleteUser = async (req, res, next) => {
       } catch (error) {
         return res
           .status(400)
-          .json("error borrando las recetas cuando borras user");
+          .json('error borrando las recetas cuando borras user');
       }
     } catch (error) {
       return res
         .status(400)
-        .json("error borrando los ingredientes cuando borras user");
+        .json('error borrando los ingredientes cuando borras user');
     }
     //
     if (await User.findById(_id)) {
-      return res.status(404).json("Dont delete");
+      return res.status(404).json('Dont delete');
     } else {
       deleteImgCloudinary(image);
-      return res.status(200).json("ok delete");
+      return res.status(200).json('ok delete');
     }
   } catch (error) {
     return next(error);
@@ -491,7 +489,7 @@ const toggleFavIngredient = async (req, res, next) => {
   try {
     const { _id } = req.user;
     const { ingredients } = req.body;
-    const arrayIngredients = ingredients.split(",");
+    const arrayIngredients = ingredients.split(',');
     arrayIngredients.forEach(async (element) => {
       if (req.user.ingredientsFav.includes(element)) {
         // si lo incluye lo sacamos
@@ -506,13 +504,13 @@ const toggleFavIngredient = async (req, res, next) => {
             });
           } catch (error) {
             return res.status(404).json({
-              error: "error updating pull id User in model ingredient",
+              error: 'error updating pull id User in model ingredient',
               message: error.message,
             });
           }
         } catch (error) {
           return res.status(404).json({
-            error: "error updating pull ingredient",
+            error: 'error updating pull ingredient',
             element,
             message: error.message,
           });
@@ -529,13 +527,13 @@ const toggleFavIngredient = async (req, res, next) => {
             });
           } catch (error) {
             return res.status(404).json({
-              error: "error updating push id User in model ingredient",
+              error: 'error updating push id User in model ingredient',
               message: error.message,
             });
           }
         } catch (error) {
           return res.status(404).json({
-            error: "error updating push ingredient",
+            error: 'error updating push ingredient',
             element,
             message: error.message,
           });
@@ -546,7 +544,7 @@ const toggleFavIngredient = async (req, res, next) => {
     setTimeout(async () => {
       return res
         .status(200)
-        .json(await User.findById(_id).populate("ingredientsFav"));
+        .json(await User.findById(_id).populate('ingredientsFav'));
     }, 100);
   } catch (error) {
     return next(error);
@@ -559,7 +557,7 @@ const toggleFavRecipe = async (req, res, next) => {
   try {
     const { _id } = req.user;
     const { recipes } = req.body;
-    const arrayRecipes = recipes.split(",");
+    const arrayRecipes = recipes.split(',');
     arrayRecipes.forEach(async (element) => {
       if (req.user.recipesFav.includes(element)) {
         // si lo incluye lo sacamos
@@ -574,13 +572,13 @@ const toggleFavRecipe = async (req, res, next) => {
             });
           } catch (error) {
             return res.status(404).json({
-              error: "error updating pull id User in model recipe",
+              error: 'error updating pull id User in model recipe',
               message: error.message,
             });
           }
         } catch (error) {
           return res.status(404).json({
-            error: "error updating pull recipe",
+            error: 'error updating pull recipe',
             element,
             message: error.message,
           });
@@ -597,13 +595,13 @@ const toggleFavRecipe = async (req, res, next) => {
             });
           } catch (error) {
             return res.status(404).json({
-              error: "error updating push id User in model recipe",
+              error: 'error updating push id User in model recipe',
               message: error.message,
             });
           }
         } catch (error) {
           return res.status(404).json({
-            error: "error updating push recipe",
+            error: 'error updating push recipe',
             element,
             message: error.message,
           });
@@ -614,7 +612,7 @@ const toggleFavRecipe = async (req, res, next) => {
     setTimeout(async () => {
       return res
         .status(200)
-        .json({ user: await User.findById(_id).populate("recipesFav") });
+        .json({ user: await User.findById(_id).populate('recipesFav') });
     }, 300);
   } catch (error) {
     return next(error);

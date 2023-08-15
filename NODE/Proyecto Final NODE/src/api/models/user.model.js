@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");
-const validator = require("validator");
+const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
+const validator = require('validator');
 
 const UserSchema = new mongoose.Schema(
   {
@@ -9,7 +9,7 @@ const UserSchema = new mongoose.Schema(
       required: true,
       trim: true,
       unique: true,
-      validate: [validator.isEmail, "Email not valid"],
+      validate: [validator.isEmail, 'Email not valid'],
     },
     name: { type: String, required: true, trim: true, unique: true },
     password: {
@@ -17,16 +17,16 @@ const UserSchema = new mongoose.Schema(
       required: true,
       trim: true,
       validate: [validator.isStrongPassword],
-      minlength: [8, "Min 8 characters"],
+      minlength: [8, 'Min 8 characters'],
     },
     gender: {
       type: String,
-      enum: ["hombre", "mujer"],
+      enum: ['hombre', 'mujer'],
       required: true,
     },
-    rol: {
+    role: {
       type: String,
-      enum: ["nutricionista", "cliente", "admin"],
+      enum: ['nutricionista', 'cliente', 'admin'],
       required: true,
     },
     confirmationCode: {
@@ -41,23 +41,23 @@ const UserSchema = new mongoose.Schema(
       type: String,
     },
     ingredientsFav: [
-      { type: mongoose.Schema.Types.ObjectId, ref: "Ingredient" },
+      { type: mongoose.Schema.Types.ObjectId, ref: 'Ingredient' },
     ],
-    recipesFav: [{ type: mongoose.Schema.Types.ObjectId, ref: "Recipe" }],
+    recipesFav: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Recipe' }],
   },
   {
     timestamps: true,
   }
 );
 
-UserSchema.pre("save", async function (next) {
+UserSchema.pre('save', async function (next) {
   try {
     this.password = await bcrypt.hash(this.password, 10);
     next();
   } catch (error) {
-    next("Error hashing password", error);
+    next('Error hashing password', error);
   }
 });
 
-const User = mongoose.model("User", UserSchema);
+const User = mongoose.model('User', UserSchema);
 module.exports = User;

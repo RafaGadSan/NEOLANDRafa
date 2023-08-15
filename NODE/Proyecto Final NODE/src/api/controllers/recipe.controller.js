@@ -1,6 +1,6 @@
-const { deleteImgCloudinary } = require("../../middleware/files.middleware");
-const Ingredient = require("../models/ingredient.model");
-const Recipe = require("../models/recipe.model");
+const { deleteImgCloudinary } = require('../../middleware/files.middleware');
+const Ingredient = require('../models/ingredient.model');
+const Recipe = require('../models/recipe.model');
 
 //!----------POSTCreate----------
 //Create recipe
@@ -15,8 +15,10 @@ const postRecipe = async (req, res, next) => {
       newRecipe.image = catchImage;
     } else {
       newRecipe.image =
-        "https://res.cloudinary.com/ds5eoiiqk/image/upload/v1691592351/proyectoNode/recipes/receipdefault_ttxva8.jpg";
+        'https://res.cloudinary.com/ds5eoiiqk/image/upload/v1691592351/proyectoNode/recipes/receipdefault_ttxva8.jpg';
     }
+
+    newRecipe.owner = req.user.userId;
 
     //guardamos el receta en la bbdd
     const savedRecipe = await newRecipe.save();
@@ -25,7 +27,7 @@ const postRecipe = async (req, res, next) => {
     } else {
       return res
         .status(404)
-        .json("No se ha podido guardar la receta en la bbdd");
+        .json('No se ha podido guardar la receta en la bbdd');
     }
   } catch (error) {
     req.file?.path && deleteImgCloudinary(catchImage);
@@ -42,7 +44,7 @@ const getRecipeById = async (req, res, next) => {
     if (recipeById) {
       return res.status(200).json({ data: recipeById });
     } else {
-      res.status(404).json("Receta no encontrada");
+      res.status(404).json('Receta no encontrada');
     }
   } catch (error) {
     return next(error);
@@ -57,7 +59,7 @@ const getAllRecipes = async (req, res, next) => {
     if (recipesAll.length > 0) {
       return res.status(200).json({ data: recipesAll });
     } else {
-      res.status(404).json("recetas no encontradas.");
+      res.status(404).json('recetas no encontradas.');
     }
   } catch (error) {
     return next(error);
@@ -91,7 +93,7 @@ const getByNameRecipe = async (req, res, next) => {
     if (recipeByName.length > 0) {
       return res.status(200).json({ data: recipeByName });
     } else {
-      return res.status(404).json("No se ha podido encontrar la receta");
+      return res.status(404).json('No se ha podido encontrar la receta');
     }
   } catch (error) {
     return next(error);
@@ -101,13 +103,17 @@ const getByNameRecipe = async (req, res, next) => {
 //!----------update----------
 
 const updateRecipe = async (req, res, next) => {
-  let catchImg = req.file?.path;
   try {
     const id = req.params.id;
-    const recipeById = await Recipe.findById(id);
+
+    // const recipeById = await checkRecipePermissions(req, res, id);
+
+    // //si da un error en la función de checkRecipePermissions
+    // if (recipeById.status) return;
+
+    const recipeById = req.recipe;
 
     if (recipeById) {
-      const oldImg = recipeById.image;
       const customBody = {
         _id: recipeById._id,
         image: req.file?.path ? req.file?.path : recipeById.image,
@@ -126,6 +132,7 @@ const updateRecipe = async (req, res, next) => {
 
       //testeamos que actualice
       const updateNewRecipe = await Recipe.findById(id);
+
       const elementUpdate = Object.keys(req.body);
       let test = {};
       elementUpdate.forEach((item) => {
@@ -142,7 +149,7 @@ const updateRecipe = async (req, res, next) => {
       });
       //lanzamos respuesta
       let acc = 0;
-      for (clave in test) {
+      for (let clave in test) {
         if (test[clave] == false) acc++;
       }
 
@@ -158,7 +165,7 @@ const updateRecipe = async (req, res, next) => {
         });
       }
     } else {
-      return res.status(404).json("Receta no encontrado");
+      return res.status(404).json('Receta no encontrado');
     }
   } catch (error) {
     return next(error);
@@ -172,24 +179,26 @@ const toggleIngredient = async (req, res, next) => {
     const { id } = req.params;
     const { ingredients } = req.body;
 
-    const recipeById = await Recipe.findById(id);
-    let updateRecipe;
-    let updateIng;
+    // const recipeById = await checkRecipePermissions(req, res, id);
+    const recipeById = req.recipe;
+
+    // if (recipeById.status) return;
+
     if (recipeById) {
-      arrayIngredients = ingredients.split(",");
+      arrayIngredients = ingredients.split(',');
       arrayIngredients.forEach(async (element) => {
         if (recipeById.ingredients.includes(element)) {
-          console.log("🌶️");
+          console.log('🌶️');
           try {
             await Recipe.findByIdAndUpdate(id, {
               $pull: { ingredients: element },
             });
-            updateRecipe = await Recipe.findById(id);
+            await Recipe.findById(id);
             try {
               await Ingredient.findByIdAndUpdate(element, {
                 $pull: { recipes: id },
               });
-              updateIng = await Ingredient.findById(element);
+              await Ingredient.findById(element);
             } catch (error) {
               return res.status(404).json(error);
             }
@@ -197,17 +206,17 @@ const toggleIngredient = async (req, res, next) => {
             return res.status(404).json(error);
           }
         } else {
-          console.log("💙");
+          console.log('💙');
           try {
             await Recipe.findByIdAndUpdate(id, {
               $push: { ingredients: element },
             });
-            updateRecipe = await Recipe.findById(id);
+            await Recipe.findById(id);
             try {
               await Ingredient.findByIdAndUpdate(element, {
                 $push: { recipes: id },
               });
-              updateIng = await Ingredient.findById(element);
+              await Ingredient.findById(element);
             } catch (error) {
               return res.status(404).json(error);
             }
@@ -220,9 +229,9 @@ const toggleIngredient = async (req, res, next) => {
       setTimeout(async () => {
         return res.status(200).json({
           update: await Recipe.findById(id).populate({
-            path: "ingredients",
+            path: 'ingredients',
             populate: {
-              path: "recipes",
+              path: 'recipes',
             },
           }),
         });
@@ -231,7 +240,7 @@ const toggleIngredient = async (req, res, next) => {
       // POPULATE DE VARIAS CLAVES DEL MODELO CON PUNTOS: https://res.cloudinary.com/dhkbe6djz/image/upload/v1691401628/POPULATE_CON_PUNTOS_mfbngz.jpg
       // POPULATE EN LINEA DE VARIAS CLAVES DEL MODELO: https://res.cloudinary.com/dhkbe6djz/image/upload/v1691401628/POPULATE_EN_LINEA_kmmnid.jpg
     } else {
-      return res.status(404).json("Ingrediente no encontrado");
+      return res.status(404).json('Ingrediente no encontrado');
     }
   } catch (error) {
     return next(error);
@@ -243,6 +252,9 @@ const toggleIngredient = async (req, res, next) => {
 const deleteRecipe = async (req, res, next) => {
   try {
     const { id } = req.params;
+    // const recipeById = await checkRecipePermissions(req, res, id);
+    // if (recipeById.status) return;
+
     await Recipe.findByIdAndDelete(id);
     try {
       const test = await Recipe.updateMany(
@@ -253,7 +265,7 @@ const deleteRecipe = async (req, res, next) => {
         test: test.modifiedCount === test.matchedCount ? true : false,
       });
     } catch (error) {
-      return res.status(404).json("Error borrando la receta");
+      return res.status(404).json('Error borrando la receta');
     }
   } catch (error) {
     return next(error);
@@ -262,7 +274,7 @@ const deleteRecipe = async (req, res, next) => {
 
 //! traer recetas que lleven MENOS de X tiempo de preparación
 
-const filterMaxPrepTime = async (req, res, next) => {
+const filterMaxPrepTime = async (req, res) => {
   try {
     const recipes = await Recipe.find();
     const recipesFiltered = recipes.filter(
@@ -272,20 +284,20 @@ const filterMaxPrepTime = async (req, res, next) => {
     recipesFiltered.sort((a, b) => a.preparationTime - b.preparationTime);
     return res.status(200).json(recipesFiltered);
   } catch (error) {
-    return res.status(400).json("error trayendo el top 5 de proteinas");
+    return res.status(404).json('error trayendo el top 5 de proteinas');
   }
 };
 
 //!------------traer información nutricional de la receta----------
 
-async function getRecipeNutritionalInfo(req, res, next) {
+async function getRecipeNutritionalInfo(req, res) {
   const recipeId = req.params.id;
 
   try {
-    const recipe = await Recipe.findById(recipeId).populate("ingredients");
+    const recipe = await Recipe.findById(recipeId).populate('ingredients');
 
     if (!recipe) {
-      return res.status(404).json({ error: "Receta no encontrada" });
+      return res.status(404).json({ error: 'Receta no encontrada' });
     }
 
     let totalSimpleSugars = 0;
@@ -325,9 +337,22 @@ async function getRecipeNutritionalInfo(req, res, next) {
     return res.status(200).json(recipeNutritionalInfo);
   } catch (error) {
     console.error(error);
-    res.status(404).json("Error trayendo la información nutricional");
+    res.status(404).json('Error trayendo la información nutricional');
   }
 }
+
+// const checkRecipePermissions = async (req, res, id) => {
+//   const role = req.user.role;
+//   const recipe = await Recipe.findById(id).lean();
+
+//   if (
+//     role !== "admin" &&
+//     recipe.owner.toString() !== req.user.userId.toString()
+//   )
+//     return res.status(403).json("No eres dueño de esta receta");
+
+//   return recipe;
+// };
 
 module.exports = {
   postRecipe,

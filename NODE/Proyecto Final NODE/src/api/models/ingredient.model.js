@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
@@ -16,32 +16,33 @@ const IngredientSchema = new Schema(
     allergenGroup: {
       type: String,
       enum: [
-        "Gluten",
-        "Crustáceos",
-        "Huevo",
-        "Pescado",
-        "Altramuces",
-        "Soja",
-        "Leche",
-        "Frutos secos",
-        "Mostaza",
-        "Cacahuetes",
-        "Sésamo",
-        "Sulfitos",
-        "Apio",
-        "Moluscos",
+        'Gluten',
+        'Crustáceos',
+        'Huevo',
+        'Pescado',
+        'Altramuces',
+        'Soja',
+        'Leche',
+        'Frutos secos',
+        'Mostaza',
+        'Cacahuetes',
+        'Sésamo',
+        'Sulfitos',
+        'Apio',
+        'Moluscos',
       ],
       required: false,
     },
     image: { type: String, required: false },
-    recipes: [{ type: mongoose.Schema.Types.ObjectId, ref: "Recipe" }],
-    usersFav: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+    recipes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Recipe' }],
+    usersFav: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+    owner: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   },
   {
     timestamps: true,
   }
 );
 
-const Ingredient = mongoose.model("Ingredient", IngredientSchema);
+const Ingredient = mongoose.model('Ingredient', IngredientSchema);
 
 module.exports = Ingredient;
