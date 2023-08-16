@@ -1,14 +1,18 @@
 import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
 import "./App.css";
 import Figure from "./components/Figure";
 
-function App() {
-  //const [count, setCount] = useState(0)
-  const [time, setTime] = useState(0);
+const App = () => {
+  // estado del contador donde tenemos la funcion que nos da el valor y la funcion que nos lo settea y entre parentesis el estado incial
+  const [count, setCount] = useState(0);
+  const [hora, setHora] = useState(0);
+  let modoGris = false;
   const data = [
     {
       title: "titulo1",
-      parrafo: "parrafo1",
+      parrafo: " parrafo1",
     },
     {
       title: "titulo2",
@@ -18,40 +22,70 @@ function App() {
       title: "titulo3",
       parrafo: "parrafo3",
     },
-    {
-      title: "titulo4",
-      parrafo: "parrafo4",
-    },
-    {
-      title: "titulo5",
-      parrafo: "parrafo5",
-    },
-    {
-      title: "titulo6",
-      parrafo: "parrafo6",
-    },
   ];
+  const palabrasAleatorias = [
+    "manzana",
+    "perro",
+    "guitarra",
+    "playa",
+    "montaña",
+  ];
+
+  const setColor = () => {};
+
   return (
     <>
-      <div>
-        <p>
-          {setTime(6)}
-          {time >= 6 && time <= 12
-            ? "Buenos días"
-            : time >= 13 && time <= 19
-            ? "Buenas tardes"
-            : "Buenas noches"}
-        </p>
-        {data.map((item, index) => (
+      <input type="number" onChange={(e) => setHora(e.target.value)}></input>
+      <label>
+        {hora >= 6 && hora <= 12
+          ? "Buenos días"
+          : hora >= 13 && hora <= 19
+          ? "Buenas tardes"
+          : hora < 0 || hora > 24
+          ? "No flipes"
+          : "Buenas noches"}
+      </label>
+
+      <p>
+        {
+          //Pintar un array
+
+          /*ESTE NO VA
+          palabrasAleatorias.forEach((element, index) => {
+            <span key={index}>{element}</span>;
+          })*/
+          <p>
+            Palabras aleatorias:
+            {palabrasAleatorias.map((element, index) => (
+              <span key={index}>{element} </span>
+            ))}
+          </p>
+        }
+      </p>
+
+      {
+        //pintar un array de objetos a través de un componente
+        data.map((item, index) => (
           <Figure
             title={item.title}
             parrafo={item.parrafo}
             key={item.title + index}
-          ></Figure>
-        ))}
-      </div>
+          />
+        ))
+      }
+      <button
+        onClick={() => {
+          modoGris
+            ? ((document.querySelector("body").style.background = "grey"),
+              (modoGris = false))
+            : ((document.querySelector("body").style.background = "white"),
+              (modoGris = true));
+        }}
+      >
+        Modo gris/blanco
+      </button>
     </>
   );
-}
+};
 
 export default App;
