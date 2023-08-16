@@ -6,9 +6,8 @@ import Figure from "./components/Figure";
 
 const App = () => {
   // estado del contador donde tenemos la funcion que nos da el valor y la funcion que nos lo settea y entre parentesis el estado incial
-  const [count, setCount] = useState(0);
   const [hora, setHora] = useState(0);
-  let modoGris = false;
+  let modoGris = true;
   const data = [
     {
       title: "titulo1",
