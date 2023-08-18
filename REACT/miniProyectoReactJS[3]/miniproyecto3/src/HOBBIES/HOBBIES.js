@@ -6,7 +6,8 @@ export const HOBBIES = {
     genre: "Novel",
     dateOfPublication: "11/07/1960",
     authorBirthDate: "28/04/1926",
-    bookImage: "url-to-image",
+    bookImage:
+      "https://res.cloudinary.com/ds5eoiiqk/image/upload/v1690131660/cubito_fqpcsk.gif",
     otherBooks: [
       {
         info: "Go Set a Watchman",
