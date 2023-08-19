@@ -1,0 +1,16 @@
+.experience {
+  margin-top: 20px;
+}
+
+.experience-item {
+  margin-bottom: 20px;
+}
+
+.date {
+  font-style: italic;
+  color: #555;
+}
+
+.where {
+  font-weight: bold;
+}
