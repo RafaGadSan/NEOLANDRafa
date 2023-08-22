@@ -1,0 +1,8 @@
+nav {
+  display: flex;
+  gap: 2rem;
+}
+
+a.active button {
+  border-color: #646cff;
+}
