@@ -1,30 +1,35 @@
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
 import { registerUser } from "../services/user.service";
+import { useState } from "react";
 
 //En verdad esto es un Register
 export const Register = () => {
+  //
+  const [res, setRes] = useState(null);
   const {
     handleSubmit,
     register,
-    // Destructuramos los errores del formulario
     formState: { errors },
   } = useForm();
+  const formSubmit = async (formData) => {
+    setRes(await registerUser(formData));
+  };
 
   return (
-    <form onSubmit={handleSubmit(registerUser)}>
+    <form onSubmit={handleSubmit(formSubmit)}>
       <label>
         <span>Username:</span>
         <input
-          {...register("username", {
+          {...register("name", {
             required: true,
             minLength: 2,
           })}
-          placeholder="MiniCoder"
+          placeholder="Nombre de usuario"
           type="text"
         />
 
         {/* Mostramos el error si no hay username ya que es requerido */}
-        {errors.username ? (
+        {errors.name ? (
           <p className="error">
             Este campo es requerido y debe tener al menos 2 caracteres
           </p>
@@ -36,7 +41,7 @@ export const Register = () => {
         <input
           {...register("password", {
             required: true,
-            minLength: 6,
+            minLength: 8,
             pattern: /^\S*$/,
             validate: {
               format: (password) => {
@@ -51,7 +56,6 @@ export const Register = () => {
           placeholder="*****"
           type="password"
         />
-
         {/* Si hay errores en password mostramos el mensaje */}
         {errors.password ? (
           <p className="error">
@@ -59,6 +63,63 @@ export const Register = () => {
             {errors.password.type === "format"
               ? "La contraseña debe contener al menos una mayúscula, una minúscula y un número"
               : "Este campo es requerido y debe tener al menos 6 caracteres"}
+          </p>
+        ) : null}
+      </label>
+
+      <label>
+        <span>email:</span>
+        <input
+          {...register("email", {
+            required: true,
+            minLength: 2,
+          })}
+          placeholder="email"
+          type="email"
+        />
+
+        {/* Mostramos el error si no hay username ya que es requerido */}
+        {errors.email ? (
+          <p className="error">
+            Este campo es requerido y debe tener al menos 2 caracteres
+          </p>
+        ) : null}
+      </label>
+
+      <label>
+        <span>gender:</span>
+        <input
+          {...register("gender", {
+            required: true,
+            minLength: 2,
+          })}
+          placeholder="Hombre o mujer"
+          type="text"
+        />
+
+        {/* Mostramos el error si no hay username ya que es requerido */}
+        {errors.gender ? (
+          <p className="error">
+            Este campo es requerido y debe tener al menos 2 caracteres
+          </p>
+        ) : null}
+      </label>
+
+      <label>
+        <span>role:</span>
+        <input
+          {...register("role", {
+            required: true,
+            minLength: 2,
+          })}
+          placeholder="cliente, nutricionista o admin"
+          type="text"
+        />
+
+        {/* Mostramos el error si no hay username ya que es requerido */}
+        {errors.role ? (
+          <p className="error">
+            Este campo es requerido y debe tener al menos 2 caracteres
           </p>
         ) : null}
       </label>

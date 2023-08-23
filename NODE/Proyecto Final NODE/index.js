@@ -51,6 +51,8 @@
 //   console.log(`Listening on PORT ${BASE_URL}${PORT}`);
 // });
 //!-------------------------------------ABAJO EL DE LAURA--------------
+const cors = require('cors');
+
 const express = require('express');
 
 const dotenv = require('dotenv');
@@ -68,7 +70,12 @@ const PORT = process.env.PORT;
 
 //Creamos el servidor
 const app = express();
-
+app.use(
+  cors({
+    origin: '*',
+    credentials: true,
+  })
+);
 //limitaciones
 
 app.use(express.json({ limit: '5mb' }));

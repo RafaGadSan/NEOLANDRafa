@@ -5,6 +5,8 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./routes/Home.jsx";
 import About from "./routes/About.jsx";
+import ShowAPI from "./routes/ShowAPI.jsx";
+import RegisterRoute from "./routes/RegisterRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +15,8 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <Home /> },
       { path: "/about", element: <About /> },
+      { path: "/register", element: <RegisterRoute /> },
+      { path: "/shoWAPI", element: <ShowAPI /> },
     ],
   },
 ]);
