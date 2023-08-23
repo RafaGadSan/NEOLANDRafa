@@ -9,6 +9,7 @@ function App() {
   return (
     <>
       <CodeUseRef />
+      <CodeRefFocus />
       <CodeTaxCalculator />
       <CodeUseRefCss />
       <CodeInterval />

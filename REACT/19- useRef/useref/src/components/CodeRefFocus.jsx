@@ -1,7 +1,7 @@
 import { useRef, useEffect } from "react";
 
 export const CodeRefFocus = () => {
-  const focusInputRef = useRef < HTMLInputElement > null;
+  const focusInputRef = useRef(null);
 
   useEffect(() => {
     if (focusInputRef.current) focusInputRef.current.focus();

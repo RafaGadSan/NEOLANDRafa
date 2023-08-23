@@ -1,7 +1,8 @@
 import { useForm } from "react-hook-form";
+import { registerUser } from "../services/user.service";
 
 //En verdad esto es un Register
-export const AuthForm = () => {
+export const Register = () => {
   const {
     handleSubmit,
     register,
@@ -9,15 +10,8 @@ export const AuthForm = () => {
     formState: { errors },
   } = useForm();
 
-  //Ésta es la que registra los datos que le metemos.
-  const onFormSubmit = (formData) => {
-    console.log("Form values:", formData);
-
-    // Gestionamos el submit como nos haga falta...
-  };
-
   return (
-    <form onSubmit={handleSubmit(onFormSubmit)}>
+    <form onSubmit={handleSubmit(registerUser)}>
       <label>
         <span>Username:</span>
         <input
