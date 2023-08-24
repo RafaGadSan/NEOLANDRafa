@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
 import axios from "axios";
+import Reloj from "./Reloj";
 
 const URL = "http://localhost:8080";
 
@@ -8,7 +9,7 @@ const Header = () => {
   // const [numero1, setNumero1] = useState(0);
   // const [res, setRes] = useState(null);
 
-  const numero3 = useRef(null);
+  //const numero3 = useRef(null);
 
   // useEffect(() => {
   //   console.log("ha habido un cambio");
@@ -43,6 +44,7 @@ const Header = () => {
 
   return (
     <header>
+      <Reloj />
       <nav>
         <ul>
           <li>
@@ -60,14 +62,14 @@ const Header = () => {
           </li>
         </ul>
       </nav>
-      {/* <span>{numero1}</span> */}
+      {/* <span>{numero1}</span> 
       <input
         type="number"
         ref={numero3}
         defaultValue="0"
         onChange={() => console.log(numero3.current.valueAsNumber)}
       />
-      <button onClick={() => clickBtn()}>Click</button>
+      <button onClick={() => clickBtn()}>Click</button>*/}
     </header>
   );
 };
